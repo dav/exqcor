@@ -1,0 +1,12 @@
+<h3>Characters</h3>
+<table>
+<% @play.characters.each do |character| %>
+<tr>
+	<td style="font-weight: bold"><%= character.name %></td>
+	<td><%= character.description %></td>
+	<% if editable %>
+	<td><%= link_to "Delete", "/plays/#{@play.id}/characters/#{character.id}", :confirm => "Do you really want to delete this post?", :method => :delete %></td>
+	<% end %>
+</tr>
+<% end %>
+</table>

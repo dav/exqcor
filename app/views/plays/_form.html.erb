@@ -1,0 +1,34 @@
+<%= form_for(@play) do |f| %>
+  <% if @play.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@play.errors.count, "error") %> prohibited this play from being saved:</h2>
+
+      <ul>
+      <% @play.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+	<div>
+		<%= render 'characters', :editable => true %>
+	</div>
+	
+	<div>
+		<% @character = Character.new %>
+		<%= link_to "Add Character", "/plays/#{@play.id}/characters/new" %>
+	</div>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -45,7 +45,7 @@ class SectionsController < ApplicationController
         format.html { redirect_to edit_play_url(@play), notice: 'section was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to edit_play_url(@play), }
+        format.html { redirect_to edit_play_url(@play) }
         format.json { render json: @section.errors, status: :unprocessable_entity }
       end
     end

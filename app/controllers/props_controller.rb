@@ -46,7 +46,7 @@ class PropsController < ApplicationController
         format.html { redirect_to edit_play_url(@play), notice: 'Prop was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to edit_play_url(@play), }
+        format.html { redirect_to edit_play_url(@play) }
         format.json { render json: @prop.errors, status: :unprocessable_entity }
       end
     end

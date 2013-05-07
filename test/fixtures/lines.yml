@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  text: MyString
+  ordering: 1
+  sub_section_id: MyString
+  character_id: MyString
+
+two:
+  text: MyString
+  ordering: 1
+  sub_section_id: MyString
+  character_id: MyString

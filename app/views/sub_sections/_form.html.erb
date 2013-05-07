@@ -1,0 +1,25 @@
+<%= form_for([@play, @section, @sub_section]) do |f| %>
+  <% if @sub_section.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sub_section.errors.count, "error") %> prohibited this sub_section from being saved:</h2>
+
+      <ul>
+      <% @sub_section.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ordering %><br />
+    <%= f.number_field :ordering %>
+  </div>
+  <div class="field">
+    <%= f.label :section_id %><br />
+    <%= f.text_field :section_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

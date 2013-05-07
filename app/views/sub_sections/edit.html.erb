@@ -1,0 +1,22 @@
+<h1>New sub_section for <%= @sub_section.section.play.title %></h1>
+<div>
+<% if @section.sub_sections.size <= 1 %>
+This is the first section, so no previous line, just start writing!
+<% else %>
+<div>
+  This is sub_section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>
+</div>
+<div>
+Previous line:
+</div>
+<% end %>
+</div>
+
+<hr>
+
+<div id="app">
+</div>
+
+<hr>
+
+<%= link_to 'Back', edit_play_path(@play) %>

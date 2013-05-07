@@ -37,7 +37,7 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.save
-        format.html { redirect_to @play, notice: 'Character was successfully created.' }
+        format.html { redirect_to edit_play_url(@play), notice: 'Character was successfully created.' }
         format.json { render json: @character, status: :created, location: @character }
       else
         format.html { render action: "new" }
@@ -53,10 +53,10 @@ class CharactersController < ApplicationController
 
     respond_to do |format|
       if @character.update_attributes(params[:character])
-        format.html { redirect_to @character, notice: 'Character was successfully updated.' }
+        format.html { redirect_to edit_play_url(@play), notice: 'Character was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to edit_play_url(@play), }
         format.json { render json: @character.errors, status: :unprocessable_entity }
       end
     end
@@ -70,7 +70,7 @@ class CharactersController < ApplicationController
     @character.destroy
 
     respond_to do |format|
-      format.html { redirect_to play_url(@play) }
+      format.html { redirect_to edit_play_url(@play) }
       format.json { head :no_content }
     end
   end

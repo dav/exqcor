@@ -1,0 +1,13 @@
+<hr>
+<h3>Props</h3>
+<table>
+<% @play.props.each do |prop| %>
+<tr>
+	<td style="font-weight: bold"><%= prop.name %></td>
+	<td><%= prop.description %></td>
+	<% if editable %>
+	<td>[<%= link_to "delete", "/plays/#{@play.id}/props/#{prop.id}", :confirm => "Do you really want to delete #{prop.name}?", :method => :delete %>]</td>
+	<% end %>
+</tr>
+<% end %>
+</table>

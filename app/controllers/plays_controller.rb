@@ -44,7 +44,7 @@ class PlaysController < ApplicationController
 
     respond_to do |format|
       if @play.save
-        format.html { redirect_to @play, notice: 'Play was successfully created.' }
+        format.html { redirect_to edit_play_path(@play), notice: 'Play was successfully created.' }
         format.json { render json: @play, status: :created, location: @play }
       else
         format.html { render action: "new" }

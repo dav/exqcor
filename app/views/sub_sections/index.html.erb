@@ -1,0 +1,25 @@
+<h1>Listing sub_sections</h1>
+
+<table>
+  <tr>
+    <th>Ordering</th>
+    <th>Play</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sub_sections.each do |sub_section| %>
+  <tr>
+    <td><%= sub_section.ordering %></td>
+    <td><%= sub_section.play_id %></td>
+    <td><%= link_to 'Show', sub_section %></td>
+    <td><%= link_to 'Edit', edit_sub_section_path(sub_section) %></td>
+    <td><%= link_to 'Destroy', sub_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sub section', new_sub_section_path %>

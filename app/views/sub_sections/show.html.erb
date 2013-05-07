@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ordering:</b>
+  <%= @sub_section.ordering %>
+</p>
+
+<p>
+  <b>Play:</b>
+  <%= @sub_section.play_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_sub_section_path(@sub_section) %> |
+<%= link_to 'Back', sub_sections_path %>

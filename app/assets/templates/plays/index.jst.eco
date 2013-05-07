@@ -1,0 +1,4 @@
+<label>Add Play (enter title): <input id="add-play"/></label>
+<table id="plays">
+</table>
+<div id="footer"></div>

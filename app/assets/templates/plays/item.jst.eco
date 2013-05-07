@@ -1,0 +1,7 @@
+<td align="right" style="margin-top: 20px">
+  <div style="font-weight: bold"><%= @play.get 'title' %></div>
+  <div><%= @play.get 'description' %></div>
+</td>
+
+<td valign="top">[<a href="#" class="remove-play">delete</a>,<a href="http://localhost:3000/plays/1/edit" class="edit-play">edit</a>]
+</td>

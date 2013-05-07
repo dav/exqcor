@@ -1,6 +1,12 @@
 Exqcor::Application.routes.draw do
   resources :plays do
     resources :characters 
+    resources :sections do
+      resources :props
+      resources :sub_sections do
+        resources :lines
+      end
+    end
   end
 
 

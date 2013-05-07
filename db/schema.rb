@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428175858) do
+ActiveRecord::Schema.define(:version => 20130507035043) do
 
   create_table "characters", :force => true do |t|
     t.string   "name"
@@ -21,11 +21,44 @@ ActiveRecord::Schema.define(:version => 20130428175858) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "lines", :force => true do |t|
+    t.string   "text"
+    t.integer  "ordering"
+    t.string   "sub_section_id"
+    t.string   "character_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "plays", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "props", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "section_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sections", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "ordering"
+    t.string   "play_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sub_sections", :force => true do |t|
+    t.integer  "ordering"
+    t.string   "section_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

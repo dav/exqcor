@@ -1,0 +1,26 @@
+<hr>
+<h3>Sections</h3>
+<table>
+<% @play.sections.each do |section| %>
+  <tr>
+  	<td style="font-weight: bold"><%= section.name %></td>
+  	<td><%= section.description %></td>
+  	<% if editable %>
+  	<td>[<%= link_to "delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %>,
+<%= link_to "write", "/plays/#{@play.id}/sections/#{section.id}/sub_sections/new" %>]</td>
+  	<% end %>
+  </tr>
+  <tr>
+  </tr>
+  <% section.props.each do |prop| %>
+    <tr>
+      <td align="right">prop:</td>
+      <td><%= prop.name %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td></td>
+    <td><%= link_to "Add a prop", "/plays/#{@play.id}/sections/#{section.id}/props/new" %></td>
+  <tr>
+<% end %>
+</table>

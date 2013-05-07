@@ -19,15 +19,24 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
-	<div>
-		<%= render 'characters', :editable => true %>
-	</div>
-	
-	<div>
-		<% @character = Character.new %>
-		<%= link_to "Add Character", "/plays/#{@play.id}/characters/new" %>
-	</div>
-</div>
+
+  	<div>
+  		<%= render 'characters', :editable => true %>
+  	</div>
+  	<div>
+  		<% @character = Character.new %>
+  		<%= link_to "Add Character", "/plays/#{@play.id}/characters/new" %>
+  	</div>
+
+  	<div>
+  		<%= render 'sections', :editable => true %>
+  	</div>
+  	<div>
+  		<%= link_to "Add Section", "/plays/#{@play.id}/sections/new" %>
+  	</div>
+
+  <hr>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

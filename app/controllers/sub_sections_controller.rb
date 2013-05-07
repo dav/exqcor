@@ -21,7 +21,10 @@ class SubSectionsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @sub_section }
+      format.json do 
+        full_json = @sub_section.to_json(:include => [:lines, :section => {:include => {:play  => {:include => :characters}}}])
+        render json: full_json
+      end
     end
   end
 

@@ -1,0 +1,11 @@
+<table id="lines">
+</table>
+<div style="margin-top: 20px; background-color: lightgray">
+<label>Add line: 
+  <select id="add-line-character_id">
+    <option value="ONE">1</option>
+    <option value="TWO">2</option>
+  </select>
+  <input id="add-line"/>
+</label>
+</div>

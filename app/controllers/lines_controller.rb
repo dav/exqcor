@@ -40,12 +40,15 @@ class LinesController < ApplicationController
   # POST /lines
   # POST /lines.json
   def create
+    # @play = Play.find(params[:play_id])
+    # @section = Section.find(params[:section_id])
+    # @sub_section = SubSection.find(params[:sub_section_id])
     @line = Line.new(params[:line])
 
     respond_to do |format|
       if @line.save
         format.html { redirect_to @line, notice: 'Line was successfully created.' }
-        format.json { render json: @line, status: :created, location: @line }
+        format.json { render json: @line, status: :created }
       else
         format.html { render action: "new" }
         format.json { render json: @line.errors, status: :unprocessable_entity }

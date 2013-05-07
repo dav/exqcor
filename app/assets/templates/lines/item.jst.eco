@@ -1,0 +1,8 @@
+<td align="right" style="margin-top: 20px">
+  <div style="font-weight: bold"><%= @line.get 'character_id' %></div>
+</td>
+<td align="right" style="margin-top: 20px">
+  <div><%= @line.get 'text' %></div>
+</td>
+<td valign="top">[<a href="#" class="remove-line">delete</a>,<a href="http://localhost:3000/plays/1/edit" class="edit-line">edit</a>]
+</td>

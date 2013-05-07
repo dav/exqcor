@@ -14,6 +14,17 @@ class SubSectionsController < ApplicationController
     end
   end
 
+  def show
+    @play = Play.find(params[:play_id])
+    @section = Section.find(params[:section_id])
+    @sub_section = SubSection.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @sub_section }
+    end
+  end
+
   # GET /sub_sections/1/edit
   def edit
     @play = Play.find(params[:play_id])

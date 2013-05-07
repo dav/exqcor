@@ -4,7 +4,8 @@ window.Exqcor =
 	Views: {}
 	Routers: {}
 	init: ->
-	  new Exqcor.Routers.Plays
+	  #new Exqcor.Routers.Plays
+	  new Exqcor.Routers.SubSections
 	  Backbone.history.start()
 	
 $(document).ready ->

@@ -41,6 +41,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
       section_id: @model.get('section_id'), 
       sub_section_id: @model.get('sub_section_id')
     @$('#add-line').val('')
+    @$('#add-line-character_id').focus();
   
   addLine: (line) ->
     characters = @model.get('characters')

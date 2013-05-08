@@ -4,6 +4,12 @@
 <label>Add line: 
   <select id="add-line-character_id">
   </select>
-  <input id="add-line"/>
+  <input id="add-line" style="width: 80%"/>
 </label>
 </div>
+
+<script>
+	$('#add-line-character_id').change(function() {
+		$('#add-line').focus();
+	})
+</script>

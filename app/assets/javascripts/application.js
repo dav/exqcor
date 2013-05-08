@@ -25,3 +25,5 @@
 //= require_tree .//routers
 
 //= require_tree .
+
+//= require countdown_v2.0.0//countdown.js

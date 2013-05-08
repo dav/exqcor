@@ -4,7 +4,7 @@ class Section < ActiveRecord::Base
   has_many :props, :inverse_of => :section, :dependent => :delete_all
   has_many :sub_sections, :inverse_of => :section, :order => 'ordering ASC', :dependent => :delete_all
   
-  def next_sub_section_index
+  def next_ordering_index
     return 0 if self.sub_sections.size == 0
     
     max = -1

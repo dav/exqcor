@@ -1,13 +1,24 @@
 <h1>Writing for <%= @sub_section.section.play.title %>,  <%= @section.name %></h1>
 <div>
-<% if @section.sub_sections.size <= 1 %>
+<div>
+This is sub_section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>.
+</div>
+<% if @last_section.nil? %>
 This is the first section, so no previous line, just start writing!
 <% else %>
 <div>
-  This is sub_section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>
-</div>
-<div>
 Previous line:
+
+<table>
+  <tr>
+    <td align="right" style="margin-top: 20px">
+      <div style="font-weight: bold"><%= @last_line.character.name %>:</div>
+    </td>
+    <td style="">
+      <div><%= @last_line.text %></div>
+    </td>
+</table>
+
 </div>
 <% end %>
 </div>

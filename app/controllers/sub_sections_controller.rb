@@ -4,7 +4,7 @@ class SubSectionsController < ApplicationController
   def new
     @play = Play.find(params[:play_id])
     @section = Section.find(params[:section_id])
-    index = @section.next_sub_section_index
+    index = @section.next_ordering_index
     @sub_section = @section.sub_sections.create :ordering => index
 
     respond_to do |format|
@@ -33,6 +33,19 @@ class SubSectionsController < ApplicationController
     @play = Play.find(params[:play_id])
     @section = Section.find(params[:section_id])
     @sub_section = SubSection.find(params[:id])
+    @last_section = nil
+    if @section.sub_sections.size > 1
+      index = @sub_section.ordering
+      @section.sub_sections.each do |ss|
+        puts "ss ordering is #{ss.ordering}"
+        if ss.ordering < index && (@last_section.nil? || ss.ordering > @last_section.ordering)
+          @last_section = ss
+        end
+      end
+    end
+    puts '---------'
+    puts @last_section.inspect
+    @last_line = @last_section ? @last_section.lines.last : nil
   end
 
   # POST /sub_sections

@@ -41,9 +41,10 @@ class LinesController < ApplicationController
   # POST /lines.json
   def create
     # @play = Play.find(params[:play_id])
-    # @section = Section.find(params[:section_id])
-    # @sub_section = SubSection.find(params[:sub_section_id])
+    #@section = Section.find(params[:section_id])
+    @sub_section = SubSection.find(params[:sub_section_id])
     @line = Line.new(params[:line])
+    @line.ordering = @sub_section.next_ordering_index
 
     respond_to do |format|
       if @line.save

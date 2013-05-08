@@ -3,15 +3,19 @@ class Exqcor.Routers.SubSections extends Backbone.Router
 	routes:
 	  'write/play/:play_id/section/:section_id/sub_section/:sub_section_id': 'writeSubSection'
   
-	fetch_success: (collection, response) =>
-	  console.log "we fetched a #{collection.constructor.name} with response #{JSON.stringify(collection.toJSON())}"
-	  collection.reset response
+	#fetch_success: (collection, response) =>
+	#  console.log "we fetched a #{collection.constructor.name} with response #{JSON.stringify(collection.toJSON())}"
+	#  collection.reset response
 
 	fetch_sub_section_success: (model, response) =>
-	  console.log "we fetched a #{model.constructor.name}"
-	  console.log "with response #{JSON.stringify(model.toJSON())}"
-	  netLines = model.get('lines')
-	  lines = new Exqcor.Collections.Lines netLines
+	  #console.log "we fetched a #{model.constructor.name}"
+	  #console.log "with response #{response}"
+	  #console.log "with response #{JSON.stringify(model.toJSON())}"
+	  lines = new Exqcor.Collections.Lines model.get('lines')
+	  netCharactersArray = response['section']['play']['characters']
+	  #console.log "play #{netPlay}"
+	  characters = new Exqcor.Collections.Characters netCharactersArray
+	  model.set('characters', characters)
 	  view = new Exqcor.Views.SubSectionsWriter model: model, collection: lines
 	  view.render()
 	  # subsections.fetch

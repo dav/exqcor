@@ -9,8 +9,8 @@ class Exqcor.Views.LinesItem extends Backbone.View
   initialize: ->
     @model.bind 'destroy', @remove, @
     
-  render: -> 
-    $(@el).html(@template(line: @model))
+  render: ->
+    $(@el).html(@template(line: @model, character: @options['character']))
     @
     
   removeModel: ->

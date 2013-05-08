@@ -18,12 +18,20 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
   render: ->
     console.log 'in render'
     $(@el).html(@template())
+    # add character choices
+    characters = @model.get('characters')
+    characters.each (character) =>
+      console.log "CHARACTER #{character.get('id')} #{character.get('name')}"
+      view = new Exqcor.Views.CharacterOptionItem model: character
+      @$('#add-line-character_id').append(view.render().el)
+    # add lines
     @collection.each (line) =>
-      console.log "LINE #{line.get('character_id')} #{line.get('text')}"
-      view = new Exqcor.Views.LinesItem model: line
+      character = characters.get(line.get('character_id'))
+      console.log "LINE #{character.get('name')} says: #{line.get('text')}"
+      view = new Exqcor.Views.LinesItem model: line, character: character
       @$('#lines').append(view.render().el)
     @
-    
+
   createOnEnter: (event) ->
     return if event.keyCode != 13
     
@@ -35,6 +43,8 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
     @$('#add-line').val('')
   
   addLine: (line) ->
-    view = new Exqcor.Views.LinesItem model: line
+    characters = @model.get('characters')
+    character = characters.get(line.get('character_id'))
+    view = new Exqcor.Views.LinesItem model: line, character: character
     @$('#lines').append(view.render().el)
     @

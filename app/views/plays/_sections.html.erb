@@ -6,8 +6,7 @@
   	<td style="font-weight: bold"><%= section.name %></td>
   	<td><%= section.description %></td>
   	<% if editable %>
-  	<td>[<%= link_to "delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %>,
-<%= link_to "write", "/plays/#{@play.id}/sections/#{section.id}/sub_sections/new" %>]</td>
+  	<td>[<%= link_to "delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %>]</td>
   	<% end %>
   </tr>
   <tr>
@@ -21,6 +20,21 @@
   <tr>
     <td></td>
     <td><%= link_to "Add a prop", "/plays/#{@play.id}/sections/#{section.id}/props/new" %></td>
+  </tr>
   <tr>
+    <td colspan="2">
+      <div>SubSections</div>
+      <% section.sub_sections.each do |ss| %>
+        <div>
+          Subsection <%= ss.ordering %>: <%= ss.lines.size %> lines 
+          [<%= link_to "write", "/plays/#{@play.id}/sections/#{section.id}/sub_sections/#{ss.id}/edit#write/play/#{@play.id}/section/#{section.id}/sub_section/#{ss.id}" %>]
+        </div>
+      <% end %>
+
+      <div>
+        <%= link_to "New SubSection", "/plays/#{@play.id}/sections/#{section.id}/sub_sections/new" %>
+      </div>
+  </tr>
+    
 <% end %>
 </table>

@@ -9,6 +9,7 @@ This is the first section, so no previous line, just start writing!
 <div>
 Previous line:
 
+<% if @last_line %>
 <table>
   <tr>
     <td align="right" style="margin-top: 20px">
@@ -18,6 +19,9 @@ Previous line:
       <div><%= @last_line.text %></div>
     </td>
 </table>
+<% else %>
+  No last line in previous section yet
+<% end %>
 
 </div>
 <% end %>

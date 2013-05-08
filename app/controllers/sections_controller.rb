@@ -16,6 +16,11 @@ class SectionsController < ApplicationController
     @section = section.find(params[:id])
   end
 
+  def show
+    @play = Play.find(params[:play_id])
+    @section = Section.find(params[:id])
+  end
+
   # POST /Sections
   # POST /Sections.json
   def create

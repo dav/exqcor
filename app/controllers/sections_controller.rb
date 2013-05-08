@@ -19,6 +19,9 @@ class SectionsController < ApplicationController
   def show
     @play = Play.find(params[:play_id])
     @section = Section.find(params[:id])
+    if params[:character_id]
+      @character = Character.find(params[:character_id])
+    end
   end
 
   # POST /Sections

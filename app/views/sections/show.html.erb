@@ -11,10 +11,18 @@
   <% ss.lines.each do |line| %>
   <tr>
     <td align="right" style="margin-top: 20px">
-      <div style="font-weight: bold"><%= line.character.name %>:</div>
+	  <% if @character && @character.id == line.character.id %>
+      	<div style="font-weight: bold"><%= line.character.name %>:</div>
+	  <% else %>
+    	<div style=""><%= line.character.name %>:</div>
+	  <% end %>
     </td>
     <td style="">
-      <div><%= line.text %></div>
+	  <% if @character && @character.id == line.character.id %>
+      	<div style="font-weight: bold"><%= line.text %></div>
+	  <% else %>
+      	<div><%= line.text %></div>
+	  <% end %>
     </td>
   </tr>
   <% end %>

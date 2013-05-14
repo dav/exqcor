@@ -3,7 +3,7 @@ class CreateCharacters < ActiveRecord::Migration
     create_table :characters do |t|
       t.string :name
       t.string :description
-      t.string :play_id
+      t.integer :play_id
 
       t.timestamps
     end

@@ -3,7 +3,7 @@ class CreateProps < ActiveRecord::Migration
     create_table :props do |t|
       t.string :name
       t.string :description
-      t.string :section_id
+      t.integer :section_id
 
       t.timestamps
     end

@@ -4,7 +4,7 @@ class CreateSections < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :ordering
-      t.string :play_id
+      t.integer :play_id
 
       t.timestamps
     end

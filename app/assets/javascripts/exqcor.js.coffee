@@ -5,10 +5,6 @@ window.Exqcor =
 	Routers: {}
 	unsavedInput: false
 	init: ->
-    $(":input").change ->
-      console.log 'input changing'
-      Exqcor.unsavedInput = true # trigers change in all input fields including text type
-      null
     new Exqcor.Routers.SubSections
     Backbone.history.start()
   handleUnload: ->
@@ -25,3 +21,13 @@ window.onbeforeunload = ->
 
 $(document).ready ->
   Exqcor.init()
+
+
+
+  # disable globally this for now
+  # because need to make sure all pages with a non-ajax save handle
+  # it properly (turn off check when user is submitting)
+  # $(":input").change ->
+  #   console.log 'input changing'
+  #   Exqcor.unsavedInput = true # trigers change in all input fields including text type
+  #   null

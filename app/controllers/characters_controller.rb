@@ -25,6 +25,7 @@ class CharactersController < ApplicationController
 
   # GET /characters/1/edit
   def edit
+    @play = Play.find(params[:play_id])
     @character = Character.find(params[:id])
   end
 
@@ -49,6 +50,7 @@ class CharactersController < ApplicationController
   # PUT /characters/1
   # PUT /characters/1.json
   def update
+    @play = Play.find(params[:play_id])
     @character = Character.find(params[:id])
 
     respond_to do |format|

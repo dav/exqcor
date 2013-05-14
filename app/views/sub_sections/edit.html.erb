@@ -59,8 +59,10 @@ Previous line:
 </div>
 <hr>
 
-<%= link_to 'Back', edit_play_path(@play) %>
-
+<div style="font-size: 125%">
+<%= link_to 'Back to Edit Play', edit_play_path(@play) %><br/>
+<%= link_to "View all lines for #{@section.name}", play_section_path(@play, @section) %>
+</div>
 
 <script>
   $('#next_sub_section_link').hide();

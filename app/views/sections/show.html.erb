@@ -1,5 +1,13 @@
 <h1><%= @section.play.title %>,  <%= @section.name %></h1>
 
+Highlight lines for : [
+  <% @section.play.characters.each do |character| %>
+    <%= link_to character.name, play_section_url(@section.play, @section, {:character_id => character.id })%>
+  <% end %>
+]
+
+<hr>
+
 <table>
 <% @section.sub_sections.each do |ss| %>
 <tr>

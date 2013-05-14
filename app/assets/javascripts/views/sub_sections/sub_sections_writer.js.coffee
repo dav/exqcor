@@ -4,7 +4,6 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
   template: JST['sub_sections/writer']
 
   events: 
-    'keypress #add-line': 'createOnEnter'
     'click #add-line-button': 'createLine'
     
   initialize: ->
@@ -17,14 +16,13 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
     @collection.bind 'add', @addLine, @
 
   render: ->
-    console.log 'in render'
     $(@el).html(@template())
     # add character choices
     characters = @model.get('characters')
     characters.each (character) =>
       console.log "CHARACTER #{character.get('id')} #{character.get('name')}"
       view = new Exqcor.Views.CharacterOptionItem model: character
-      @$('#add-line-character_id').append(view.render().el)
+      @$('#character-id-select').append(view.render().el)
     # add lines
     @collection.each (line) =>
       character = characters.get(line.get('character_id'))
@@ -33,20 +31,17 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
       @$('#lines').append(view.render().el)
     @
 
-  createOnEnter: (event) ->
-    return if event.keyCode != 13
-    @createLine event
-
   createLine: (event) ->
+    console.log('createLine');
     @collection.create \
       text: @$('#add-line').val(), \
-      character_id: @$('#add-line-character_id').val(), \
+      character_id: @$('#character-id-select').val(), \
       play_id: @model.get('play_id'), \
       section_id: @model.get('section_id'), \
       sub_section_id: @model.get('sub_section_id')
     @$('#add-line').val('')
     @$('#add-line-character_id').focus();
-    true
+    @
   
   addLine: (line) ->
     characters = @model.get('characters')

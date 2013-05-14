@@ -14,4 +14,16 @@ class SubSection < ActiveRecord::Base
     end
     return max+1
   end
+  
+  def next_section
+    sss = self.section.sub_sections
+    sss.each_with_index do |sub_section, i|
+      if sub_section==self
+        if i+1 < sss.size
+          return sss[i+1]
+        end
+      end
+    end
+    nil
+  end
 end

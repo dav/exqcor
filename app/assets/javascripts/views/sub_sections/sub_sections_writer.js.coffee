@@ -14,6 +14,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
     console.log 'in sub_sections writer init with play_id of '+@model.get('play_id')
     @collection.bind 'reset', @render, @
     @collection.bind 'add', @addLine, @
+    null
 
   render: ->
     $(@el).html(@template())
@@ -29,6 +30,10 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
       console.log "LINE #{character.get('name')} says: #{line.get('text')}"
       view = new Exqcor.Views.LinesItem model: line, character: character
       @$('#lines').append(view.render().el)
+    $("#add-line").change ->
+      Exqcor.unsavedInput = ($('#add-line').val().length > 0)
+      console.log 'input changing, stuff='+Exqcor.unsavedInput
+    Exqcor.unsavedInput = false      
     @
 
   createLine: (event) ->
@@ -49,3 +54,6 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
     view = new Exqcor.Views.LinesItem model: line, character: character
     @$('#lines').append(view.render().el)
     @
+    
+window.onbeforeunload = ->
+  Exqcor.handleUnload()

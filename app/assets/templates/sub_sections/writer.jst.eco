@@ -1,6 +1,9 @@
 <table id="lines">
 </table>
 <div style="margin-top: 20px; background-color: lightgray">
+<div style="margin-bottom: 10px">
+  If the focus keeps jumping to the character selector, press the Tab key to enter dialogue text. Sorry about this, I haven't been able to figure it out yet.
+</div>
 <label>Add line: 
   <select id="add-line-character_id">
   </select>

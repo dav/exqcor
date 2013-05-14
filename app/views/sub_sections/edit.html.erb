@@ -6,17 +6,17 @@ This is sub_section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.
 <% if @last_section.nil? %>
 This is the first section, so no previous line, just start writing!
 <% else %>
-<div>
+<div style="background-color: yellow">
 Previous line:
 
 <% if @last_line %>
 <table>
   <tr>
     <td align="right" style="margin-top: 20px">
-      <div style="font-weight: bold"><%= @last_line.character.name %>:</div>
+      <div style="font-weight: bold; font-size:150%"><%= @last_line.character.name %>:</div>
     </td>
     <td style="">
-      <div><%= @last_line.text %></div>
+      <div style="font-size:150%"><%= @last_line.text %></div>
     </td>
 </table>
 <% else %>

@@ -35,13 +35,15 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
   createOnEnter: (event) ->
     return if event.keyCode != 13
     
-    @collection.create text: @$('#add-line').val(), \
+    @collection.create \
+      text: @$('#add-line').val(), \
       character_id: @$('#add-line-character_id').val(), \
       play_id: @model.get('play_id'), \
-      section_id: @model.get('section_id'), 
+      section_id: @model.get('section_id'), \
       sub_section_id: @model.get('sub_section_id')
     @$('#add-line').val('')
     @$('#add-line-character_id').focus();
+    true
   
   addLine: (line) ->
     characters = @model.get('characters')

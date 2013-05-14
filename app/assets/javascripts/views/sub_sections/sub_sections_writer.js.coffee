@@ -5,6 +5,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 
   events: 
     'keypress #add-line': 'createOnEnter'
+    'click #add-line-button': 'createLine'
     
   initialize: ->
     console.log "this is a #{@.constructor.name}"
@@ -34,7 +35,9 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 
   createOnEnter: (event) ->
     return if event.keyCode != 13
-    
+    @createLine event
+
+  createLine: (event) ->
     @collection.create \
       text: @$('#add-line').val(), \
       character_id: @$('#add-line-character_id').val(), \

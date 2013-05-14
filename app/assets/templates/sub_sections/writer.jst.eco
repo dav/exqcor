@@ -4,10 +4,12 @@
 <div style="margin-bottom: 10px">
   If the focus keeps jumping to the character selector, press the Tab key to enter dialogue text. Sorry about this, I haven't been able to figure it out yet.
 </div>
-<label>Add line: 
+<label>Add line: <br/>
   <select id="add-line-character_id">
   </select>
   <input id="add-line" style="width: 80%"/>
+  <br/>
+  <input id="add-line-button" type="submit" value="Add Line"/>
 </label>
 </div>
 

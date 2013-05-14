@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20130514001027) do
   create_table "characters", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "play_id"
+    t.integer  "play_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(:version => 20130514001027) do
   create_table "lines", :force => true do |t|
     t.string   "text"
     t.integer  "ordering"
-    t.string   "sub_section_id"
-    t.string   "character_id"
+    t.integer  "sub_section_id"
+    t.integer  "character_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20130514001027) do
   create_table "props", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "section_id"
+    t.integer  "section_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -49,14 +49,14 @@ ActiveRecord::Schema.define(:version => 20130514001027) do
     t.string   "name"
     t.string   "description"
     t.integer  "ordering"
-    t.string   "play_id"
+    t.integer  "play_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
 
   create_table "sub_sections", :force => true do |t|
     t.integer  "ordering"
-    t.string   "section_id"
+    t.integer  "section_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

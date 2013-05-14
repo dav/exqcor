@@ -5,7 +5,7 @@ class MakeIdRefsInteger < ActiveRecord::Migration
     change_column :sections, :play_id, :integer
     change_column :sub_sections, :section_id, :integer
     change_column :lines, :sub_section_id, :integer
-    change_column :lines, :charactersection_id, :integer
+    change_column :lines, :character_id, :integer
   end
 
   def down
@@ -14,6 +14,6 @@ class MakeIdRefsInteger < ActiveRecord::Migration
     change_column :sections, :play_id, :string
     change_column :sub_sections, :section_id, :string
     change_column :lines, :sub_section_id, :string
-    change_column :lines, :charactersection_id, :string
+    change_column :lines, :character_id, :string
   end
 end

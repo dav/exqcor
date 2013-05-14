@@ -1,11 +1,15 @@
 <h1><%= @section.play.title %>,  <%= @section.name %></h1>
 
+<div>
 Highlight lines for : [
   <% @section.play.characters.each do |character| %>
     <%= link_to character.name, play_section_url(@section.play, @section, {:character_id => character.id })%>
   <% end %>
 ]
-
+</div>
+<div>
+  <%= link_to 'Back to Edit Play', edit_play_path(@play) %><br/>
+</div>
 <hr>
 
 <table>

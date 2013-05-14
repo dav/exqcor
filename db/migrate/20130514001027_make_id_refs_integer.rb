@@ -1,13 +1,11 @@
 class MakeIdRefsInteger < ActiveRecord::Migration
   def up
-    def change
-      change_column :characters, :play_id, :integer
-      change_column :props, :section_id, :integer
-      change_column :sections, :play_id, :integer
-      change_column :sub_sections, :section_id, :integer
-      change_column :lines, :sub_section_id, :integer
-      change_column :lines, :charactersection_id, :integer
-    end
+    change_column :characters, :play_id, :integer
+    change_column :props, :section_id, :integer
+    change_column :sections, :play_id, :integer
+    change_column :sub_sections, :section_id, :integer
+    change_column :lines, :sub_section_id, :integer
+    change_column :lines, :charactersection_id, :integer
   end
 
   def down

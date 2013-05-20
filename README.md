@@ -2,7 +2,7 @@
 
 ## About
 
-An [http://en.wikipedia.org/wiki/Exquisite_corpse](Exquisite Corpse) is a play (or poem or work of art) gradually created by a group of people. Each writer only sees the line previous to the one she is writing, etcetera. The result is a strange, funny, and wondrous thing. You can imagine. It's almost as though it were invented by The Surrealists, which of course it was.
+An [Exquisite Corpse](http://en.wikipedia.org/wiki/Exquisite_corpse) is a play (or poem or work of art) gradually created by a group of people. Each writer only sees the line previous to the one she is writing, etcetera. The result is a strange, funny, and wondrous thing. You can imagine. It's almost as though it were invented by The Surrealists, which of course it was.
 
 It’s a game and a social event as well as a piece of theater. It is being done as a tribute and mini-revival of [The San Francisco Cacophony Society](http://www.cacophony.org/) who did events like this in the 80’s and 90’s based on the original Exquisite Corpse artistic game invented by the surrealists. Back then they used typewriters and then “Xeroxed” copies of the compiled script for the actors. Naturally as we looked at doing a new version, we knew we needed to make an App for that.
 

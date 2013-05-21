@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyString
+play1:
+  title: Play One
+  description: The first fixture play
 
-two:
-  title: MyString
-  description: MyString
+play2:
+  title: Play Two
+  description: The second fixture play

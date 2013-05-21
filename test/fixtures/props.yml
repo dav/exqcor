@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
-  play_id: MyString
+prop1:
+  name: Pencil
+  description: A golden pencil
+  section: play1_section1
 
-two:
-  name: MyString
-  description: MyString
-  play_id: MyString
+prop2:
+  name: Notebook
+  description: A looseleaf notebook
+  section: play1_section1

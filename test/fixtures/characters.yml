@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
-  play: 
+erdos:
+  name: Erdøs
+  description: A small mathematician
+  play: play1
 
-two:
-  name: MyString
-  description: MyString
-  play: 
+coxeter:
+  name: Donald
+  description: A tall mathematician
+  play: play1

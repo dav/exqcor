@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  text: MyString
+p1s1ss1l1:
+  text: Would you like to gaze at my mirrors?
   ordering: 1
-  sub_section_id: MyString
-  character_id: MyString
+  sub_section: play1_section1_ss1
+  character: coxeter
 
 two:
-  text: MyString
-  ordering: 1
-  sub_section_id: MyString
-  character_id: MyString
+  text: My brain is open!
+  ordering: 2
+  sub_section: play1_section1_ss1
+  character: erdos

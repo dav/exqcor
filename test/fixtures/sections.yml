@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
+play1_section1:
+  name: Act One
+  description: Interior of a mathematics building
   ordering: 1
-  play_id: MyString
+  play: play1
 
-two:
-  name: MyString
-  description: MyString
-  ordering: 1
-  play_id: MyString
+play1_section2:
+  name: Act Two
+  description: An open field at a blue grass festival
+  ordering: 2
+  play: play1

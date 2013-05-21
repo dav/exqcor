@@ -52,16 +52,16 @@ class SubSectionsController < ApplicationController
   # POST /sub_sections.json
   def create
     @play = Play.find(params[:play_id])
-    @section = @play.section
+    @section = Section.find(params[:section_id])
     @sub_section = SubSection.new(params[:sub_section])
     
 
     respond_to do |format|
       if @sub_section.save
-        format.html { redirect_to @sub_section, notice: 'Sub section was successfully created.' }
-        format.json { render json: @sub_section, status: :created, location: @sub_section }
+        #format.html { redirect_to @sub_section, notice: 'Sub section was successfully created.' }
+        format.json { render json: @sub_section, status: :created }
       else
-        format.html { render action: "new" }
+        #format.html { render action: "new" }
         format.json { render json: @sub_section.errors, status: :unprocessable_entity }
       end
     end

@@ -48,6 +48,24 @@ class SubSectionsController < ApplicationController
     @last_line = @last_section ? @last_section.lines.last : nil
   end
 
+  def next
+    @sub_section = SubSection.find(params[:id])
+    play = @sub_section.section.play
+    section = @sub_section.section
+    
+    next_ss = @sub_section.next_section
+    if next_ss.nil?
+      next_ss = SubSection.new(:ordering => @sub_section.section.next_ordering_index)
+      next_ss.section = section
+    end
+    
+    unless next_ss.nil?
+      if next_ss.save
+        redirect_to edit_play_section_sub_section_path(play.id, section.id, next_ss.id)+"#write/play/#{play.id}/section/#{section.id}/sub_section/#{next_ss.id}"
+      end
+    end
+  end
+  
   # POST /sub_sections
   # POST /sub_sections.json
   def create

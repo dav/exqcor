@@ -52,7 +52,9 @@ Previous line:
     next_section = @sub_section.next_section 
     if next_section.nil?
     %>
-    The admin needs to add more sub sections!
+   <span id="next_sub_section_link">
+    <%= link_to "Go to next writer", "/sub_sections/#{@sub_section.id}/next_writer" %>
+    </span>
   <% else %>
    <span id="next_sub_section_link">
     <%= link_to "Go to next writer", "/plays/#{@section.play.id}/sections/#{@section.id}/sub_sections/#{next_section.id}/edit#write/play/#{@section.play.id}/section/#{@section.id}/sub_section/#{next_section.id}" %>

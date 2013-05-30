@@ -18,12 +18,20 @@ class SubSectionsControllerTest < ActionController::TestCase
   #   assert_response :success
   # end
 
-  test "should create sub_section" do
+  test "create should create sub_section" do
     assert_difference('SubSection.count', 1) do
       post :create, play_id: @play.id, section_id: @section.id, sub_section: { ordering: @section.next_ordering_index }, :format => 'json'
     end
     
     assert_response :success
+  end
+
+  test "next should create a new sub_section" do
+    assert_difference('SubSection.count', 1) do
+      get :next, {id: @sub_section.id}
+    end
+    
+#    assert_response :success
   end
 
   # test "should show sub_section" do

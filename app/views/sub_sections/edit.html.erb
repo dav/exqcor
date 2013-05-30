@@ -1,5 +1,7 @@
-<h1>Writing for <%= @sub_section.section.play.title %>,  <%= @section.name %></h1>
-<div>
+<h1>Writing for <%= @sub_section.section.play.title %>, <%= @section.name %></h1>
+<h3>
+  <%= @section.description %>
+</h3>
 <div>
 This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>.
 </div>

@@ -1,4 +1,4 @@
-<h3>Sections</h3>
+<h3>Scenes</h3>
 <table style="margin-left: 20px;">
 <% @play.sections.each do |section| %>
   <tr>
@@ -25,10 +25,10 @@
   </tr>
   <tr>
     <td colspan="2">
-      <div>SubSections</div>
+      <div>Writers</div>
       <% section.sub_sections.each do |ss| %>
         <div>
-          Subsection <%= ss.ordering %>: <%= ss.lines.size %> lines 
+          Writer <%= ss.ordering %>: <%= ss.lines.size %> lines 
           [<%= link_to "write", "/plays/#{@play.id}/sections/#{section.id}/sub_sections/#{ss.id}/edit#write/play/#{@play.id}/section/#{section.id}/sub_section/#{ss.id}" %>]
         </div>
       <% end %>

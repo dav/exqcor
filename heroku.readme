@@ -1,0 +1,6 @@
+Davs-iMac:exqcor dav$ git remote -v
+heroku	git@heroku.com:murmuring-ocean-8656.git (fetch)
+heroku	git@heroku.com:murmuring-ocean-8656.git (push)
+origin	git@github.com:dav/exqcor.git (fetch)
+origin	git@github.com:dav/exqcor.git (push)
+

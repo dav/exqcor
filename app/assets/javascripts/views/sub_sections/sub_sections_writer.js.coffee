@@ -31,9 +31,8 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 			view = new Exqcor.Views.LinesItem model: line, character: character, id: "line-"+line.get('id')
 			@$('#lines').append(view.render().el)
 		$("#add-line").change ->
-			Exqcor.unsavedInput = ($('#add-line').val().length > 0)
-			console.log 'input changing, stuff='+Exqcor.unsavedInput
-		Exqcor.unsavedInput = false			 
+			# Exqcor.unsavedInput = ($('#add-line').val().length > 0)
+			# console.log 'input changing, Exqcor.unsavedInput='+Exqcor.unsavedInput
 		@
 
 	createLine: (event) ->
@@ -58,4 +57,4 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		@
 		
 window.onbeforeunload = ->
-	Exqcor.handleUnload()
+	Exqcor.handleWriterUnload()

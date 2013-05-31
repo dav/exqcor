@@ -5,18 +5,17 @@ window.Exqcor =
 	Routers: {}
 	unsavedInput: false
 	init: ->
-    new Exqcor.Routers.SubSections
-    Backbone.history.start()
-  handleUnload: ->
-    #alert 'unload'
-    if Exqcor.unsavedInput
-      "You have unsaved changes on this page. If you leave without saving them they will be lost."
-    else
-      null
+      new Exqcor.Routers.SubSections
+      Backbone.history.start()
+    handleWriterUnload: ->
+      if $('#add-line').val().length > 0
+        "You have unsaved changes on this page. If you leave without saving them they will be lost."
+      else
+        null
       
 
-window.onbeforeunload = ->
-  Exqcor.handleUnload()
+# window.onbeforeunload = ->
+#   Exqcor.handleUnload()
 
 
 $(document).ready ->

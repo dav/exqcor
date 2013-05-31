@@ -13,7 +13,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		console.log 'in sub_sections writer init with collection of size '+@collection.size()
 		console.log 'in sub_sections writer init with play_id of '+@model.get('play_id')
 		@collection.bind 'reset', @render, @
-		@collection.bind 'add', @addLine, @
+		#@collection.bind 'add', @addLine, @
 		null
 
 	render: ->
@@ -40,19 +40,27 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		lineText = $('#add-line').val();
 		if lineText != null && lineText.length > 0
 			@collection.create \
+				{ \
 				text: @$('#add-line').val(), \
 				character_id: @$('#character-id-select').val(), \
 				play_id: @model.get('play_id'), \
 				section_id: @model.get('section_id'), \
-				sub_section_id: @model.get('sub_section_id')
-			@$('#add-line').val('')
-			@$('#add-line-character_id').focus();
+				sub_section_id: @model.get('sub_section_id')}, \
+				{ \
+				  success: (response) =>
+					console.log('+++++++++++++++++++')
+					console.log(response)
+					console.log(response.get('id'))
+					@$('#add-line').val('')
+					@$('#add-line-character_id').focus();
+					@addLine(response)
+				}
 		@
 	
 	addLine: (line) ->
 		characters = @model.get('characters')
 		character = characters.get(line.get('character_id'))
-		view = new Exqcor.Views.LinesItem model: line, character: character
+		view = new Exqcor.Views.LinesItem model: line, character: character, id: "line-"+line.get('id')
 		@$('#lines').append(view.render().el)
 		@
 		

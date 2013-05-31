@@ -78,9 +78,10 @@ class LinesController < ApplicationController
   def destroy
     @line = Line.find(params[:id])
     @line.destroy
+    @play = @line.sub_section.section.play
 
     respond_to do |format|
-      format.html { redirect_to lines_url }
+      format.html { redirect_to edit_play_url(@play) }
       format.json { head :no_content }
     end
   end

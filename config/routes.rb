@@ -10,6 +10,7 @@ Exqcor::Application.routes.draw do
   end
 
   match 'sub_sections/:id/next_writer' => 'sub_sections#next', :as => :next_writer
+  resources :lines
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

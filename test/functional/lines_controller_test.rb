@@ -2,7 +2,10 @@ require 'test_helper'
 
 class LinesControllerTest < ActionController::TestCase
   setup do
-    @line = lines(:one)
+    @line = lines(:p1s1ss1l2)
+    @sub_section = @line.sub_section
+    @section = @sub_section.section
+    @play = @section.play
   end
 
   # test "should get index" do
@@ -39,11 +42,11 @@ class LinesControllerTest < ActionController::TestCase
   #   assert_redirected_to line_path(assigns(:line))
   # end
   # 
-  # test "should destroy line" do
-  #   assert_difference('Line.count', -1) do
-  #     delete :destroy, id: @line
-  #   end
-  # 
-  #   assert_redirected_to lines_path
-  # end
+  test "should destroy line" do
+    assert_difference('Line.count', -1) do
+      delete :destroy, id: @line, :format => 'json'
+    end
+ 
+    assert_response :success
+  end
 end

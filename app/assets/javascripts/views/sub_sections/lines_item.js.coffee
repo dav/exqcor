@@ -3,8 +3,8 @@ class Exqcor.Views.LinesItem extends Backbone.View
   template: JST['lines/item']
   
   events:
-    'click a.remove-line': 'removeModel'
-    'click a.edit-line': 'allowEditModel'
+    'click input.remove-line': 'removeModel'
+    #'click a.edit-line': 'allowEditModel'
     
   initialize: ->
     @model.bind 'destroy', @remove, @
@@ -14,7 +14,10 @@ class Exqcor.Views.LinesItem extends Backbone.View
     @
     
   removeModel: ->
-    @model.destroy()
+    $('#line-'+@model.get('id')).css({ 'background-color': 'rgba(255,0,0,.5)'})
+    if confirm("Are you sure you want to delete this line?")
+      @model.destroy()
+    $('#line-'+@model.get('id')).css({ 'background-color': 'white'})
     
-  allowEditModel: ->
-    @model.destroy()
+  #allowEditModel: ->
+  #  @model.destroy()

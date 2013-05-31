@@ -28,7 +28,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		@collection.each (line) =>
 			character = characters.get(line.get('character_id'))
 			console.log "LINE #{character.get('name')} says: #{line.get('text')}"
-			view = new Exqcor.Views.LinesItem model: line, character: character
+			view = new Exqcor.Views.LinesItem model: line, character: character, id: "line-"+line.get('id')
 			@$('#lines').append(view.render().el)
 		$("#add-line").change ->
 			Exqcor.unsavedInput = ($('#add-line').val().length > 0)

@@ -7,7 +7,7 @@
 	<% if editable %>
 	<td>
 	  [
-	    <%= link_to "delete", "/plays/#{@play.id}/characters/#{character.id}", :confirm => "Do you really want to delete this post?", :method => :delete %>,
+	    <%= link_to "delete", "/plays/#{@play.id}/characters/#{character.id}", :confirm => "Do you really want to delete #{character.name}?", :method => :delete %>,
 	    <%= link_to "edit", edit_play_character_url(@play, character) %>
 	  ]</td>
 	<% end %>

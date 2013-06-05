@@ -4,6 +4,7 @@
 </div>
 
 <% @play.sections.each do |section| %>
+  <% shown_characters_this_section = [] %>
 
   <h3><%= section.name %></h3>
   <div>
@@ -14,11 +15,18 @@
     ........<br/>
 
     <% ss.lines.each do |line| %>
+    <%
+      description = nil
+      if !shown_characters_this_section.include? line.character.id
+        description = " (#{line.character.description})"
+        shown_characters_this_section << line.character.id
+      end
+    %>
   <div style="margin-top: 20px; font-family: courier; font-size: 12pt; line-height: 150%;">
   	  <% if @character && @character.id == line.character.id %>
-        	<div style="font-weight: bold"><%= line.character.name %>:</div>
+        	<div style="font-weight: bold"><%= line.character.name %>:<span style=""><%= description %></span></div>
   	  <% else %>
-      	<div style=""><%= line.character.name %>:</div>
+      	<div style=""><%= line.character.name %>:<span style=""><%= description %></span></div>
   	  <% end %>
   </div>
 

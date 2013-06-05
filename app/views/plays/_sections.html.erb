@@ -1,43 +1,61 @@
 <h3>Scenes</h3>
-<table style="margin-left: 20px;">
 <% @play.sections.each do |section| %>
-  <tr>
-  	<td style="font-weight: bold; padding-top: 10px;"><%= section.name %></td>
-  	<td><%= section.description %></td>
-  	<% if editable %>
-  	<td>[<%= link_to "delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %>,
-  	  <%= link_to "View all lines for #{section.name}", play_section_path(@play, section) %>]</td>
-  	<% end %>
-  </tr>
-  <tr>
-    <td colspan="2">
-    </td>
-  </tr>
-  <% section.props.each do |prop| %>
+  <table style="margin-left: 20px; margin-top: 20px; border: 1px solid gray;">
     <tr>
-      <td align="right">prop:</td>
-      <td><%= prop.name %></td>
+    	<td colspan="2" style="font-size: 140%; font-weight: bold; padding-top: 10px;"><%= section.name %></td>
+    	<% if editable %>
+    	<td>[<%= link_to "delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %>,
+    	  <%= link_to "View all lines for #{section.name}", play_section_path(@play, section) %>]</td>
+    	<% end %>
     </tr>
-  <% end %>
+    <tr>
+    	<td colspan="3"><em><%= section.description %></em></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+      </td>
+    </tr>
+
   <tr>
-    <td></td>
-    <td><%= link_to "Add a prop", "/plays/#{@play.id}/sections/#{section.id}/props/new" %></td>
+  <td colspan="2">
+    <div style="font-weight: bold">Available Props</div>
+    <% section.props.each do |prop| %>
+      <div>
+        <%= prop.name %>: <em><%= prop.description %>
+      </div>
+    <% end %>
+  </td>
   </tr>
+
+  <tr>
+    <td colspan="3" style="padding-bottom: 10px;"><%= link_to "Add a prop", "/plays/#{@play.id}/sections/#{section.id}/props/new" %></td>
+  </tr>
+  
+  
   <tr>
     <td colspan="2">
-      <div>Writers</div>
+      <div style="font-weight: bold">Writers</div>
       <% section.sub_sections.each do |ss| %>
         <div>
-          Writer <%= ss.ordering %>: <%= ss.lines.size %> lines 
+          Writer <%= ss.ordering %>: <b><%= ss.lines.size %> lines</b>
           [<%= link_to "write", "/plays/#{@play.id}/sections/#{section.id}/sub_sections/#{ss.id}/edit#write/play/#{@play.id}/section/#{section.id}/sub_section/#{ss.id}" %>]
         </div>
       <% end %>
+    </td>
   </tr>
+  
   <tr style="margin-bottom: 10px;">
     <td colspan="2">
       <div style="width: 30%; border: 1px solid gray"></div>
     </td>
   </tr>
-    
+  
+  </table>
 <% end %>
+
+<table style="margin-left: 20px;">
+  <tr>
+  	<td colspan="3" style="font-size: 120%; font-weight: bold; padding-top: 10px;"><%= link_to "Add another scene", "/plays/#{@play.id}/sections/new" %></td>
+  </tr>
 </table>
+

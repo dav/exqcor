@@ -12,6 +12,8 @@ Exqcor::Application.routes.draw do
   match 'sub_sections/:id/next_writer' => 'sub_sections#next', :as => :next_writer
   resources :lines
 
+  match 'plays/:id/full_script' => 'plays#full_script', :as => :full_script
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

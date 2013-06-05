@@ -1,0 +1,37 @@
+<h1><%= @play.title %></h1>
+<div>
+  <em><%= @play.description %></em>
+</div>
+
+<% @play.sections.each do |section| %>
+
+  <h3><%= section.name %></h3>
+  <div>
+    <em><%= section.description %></em>
+  </div>
+
+  <% section.sub_sections.each do |ss| %>
+    ........<br/>
+
+    <% ss.lines.each do |line| %>
+  <div style="margin-top: 20px; font-family: courier; font-size: 12pt; line-height: 150%;">
+  	  <% if @character && @character.id == line.character.id %>
+        	<div style="font-weight: bold"><%= line.character.name %>:</div>
+  	  <% else %>
+      	<div style=""><%= line.character.name %>:</div>
+  	  <% end %>
+  </div>
+
+  <div style="font-family: courier; font-size: 12pt; line-height: 150%;">
+  	  <% if @character && @character.id == line.character.id %>
+        <div style="font-weight: bold; background: yellow; display: inline"><%= line.text %></div>
+  	  <% elsif line.character.name =~ /VOSD/ %>
+    	  <div style="font-weight: bold; background: lightgray; display: inline"><%= line.text %></div>
+  	  <% else %>
+        	<div><%= line.text %></div>
+  	  <% end %>
+  </div>
+    <% end %>
+  <% end %>
+
+<% end %>

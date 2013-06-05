@@ -14,10 +14,21 @@ class PlaysController < ApplicationController
   # GET /plays/1.json
   def show
     @play = Play.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @play }
+    end
+  end
+
+  # GET /plays/1
+  # GET /plays/1.json
+  def full_script
+    @play = Play.find(params[:id])
+    if params[:character_id]
+      @character = Character.find(params[:character_id])
+    end
+    respond_to do |format|
+      format.html
     end
   end
 

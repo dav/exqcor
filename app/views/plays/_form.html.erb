@@ -21,7 +21,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update play title/description" %>
   </div>
 <% end %>
 
@@ -40,8 +40,14 @@
 	<div>
 		<%= render 'sections', :editable => true %>
 	</div>
-	<div>
-		<%= link_to "Add Scene", "/plays/#{@play.id}/sections/new" %>
-	</div>
 
+<hr>
+
+<div>
+Highlight lines for : [
+  <% @play.characters.each do |character| %>
+    <%= link_to character.name, full_script_url(@play, {:character_id => character.id })%>
+  <% end %>
+]
+</div>
 

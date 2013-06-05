@@ -2,11 +2,14 @@
 <div>
   <em><%= @play.description %></em>
 </div>
+<hr>
 
 <% @play.sections.each do |section| %>
   <% shown_characters_this_section = [] %>
 
-  <h3><%= section.name %></h3>
+  <div style="font-size: 170%; font-weight: bold">
+    <%= section.name %>
+  </div>
   <div>
     <em><%= section.description %></em>
   </div>
@@ -42,4 +45,5 @@
     <% end %>
   <% end %>
 
+  <hr>
 <% end %>

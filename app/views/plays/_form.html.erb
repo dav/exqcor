@@ -44,10 +44,11 @@
 <hr>
 
 <div>
-Highlight lines for : [
+  <div style="font-weight: bold; font-size: 125%; background: yellow; display:inline">View Full Script</div>
+<ul>
   <% @play.characters.each do |character| %>
-    <%= link_to character.name, full_script_url(@play, {:character_id => character.id })%>
+    <li><%= link_to character.name, full_script_url(@play, {:character_id => character.id })%></li>
   <% end %>
-]
+</ul>
 </div>
 

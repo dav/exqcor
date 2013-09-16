@@ -18,10 +18,21 @@
 
   <tr>
   <td colspan="2">
+    <div style="font-weight: bold">Available Characters</div>
+    <% section.characters.each do |character| %>
+      <div>
+        <%= character.name %>: <em><%= character.description %></em>
+      </div>
+    <% end %>
+  </td>
+  </tr>
+
+  <tr>
+  <td colspan="2">
     <div style="font-weight: bold">Available Props</div>
     <% section.props.each do |prop| %>
       <div>
-        <%= prop.name %>: <em><%= prop.description %>
+        <%= prop.name %>: <em><%= prop.description %></em>
       </div>
     <% end %>
   </td>

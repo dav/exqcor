@@ -3,6 +3,7 @@ class Section < ActiveRecord::Base
   belongs_to :play, :inverse_of => :sections
   has_many :props, :inverse_of => :section, :dependent => :delete_all
   has_many :sub_sections, :inverse_of => :section, :order => 'ordering ASC', :dependent => :delete_all
+  has_and_belongs_to_many :characters
   
   after_create :build_first_sub_section
   

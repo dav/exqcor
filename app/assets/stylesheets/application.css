@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+
+.instructions {
+  font-size: 80%;
+  font-color: darkgray;
+  background-color: lightgray;
+}

@@ -17,13 +17,25 @@
     </tr>
 
   <tr>
-  <td colspan="2">
+  <td colspan="2" style="border: 1px solid red; padding: 10px;">
     <div style="font-weight: bold">Available Characters</div>
-    <% section.characters.each do |character| %>
+    <p>
+      <span class="instructions">Select the characters that are available for this scene.</span>
+    </p>
+
+    <div>
+    <% @play.characters.each do |character| %>
       <div>
-        <%= character.name %>: <em><%= character.description %></em>
-      </div>
+      <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
+      
+        data: {
+          remote: true,
+          url: section_characters_url(section.id, character.id)
+        }
+      )  %> 
+      <%= character.name %></div>
     <% end %>
+    </div>
   </td>
   </tr>
 

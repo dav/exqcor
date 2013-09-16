@@ -71,4 +71,24 @@ class SectionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def characters
+    @section = Section.find(params[:section_id])
+    @character = Character.find(params[:character_id])
+    character_param = 'character_'+params[:character_id]
+    selected = params[character_param] && params[character_param] == 'selected'
+    if @section && @character
+      if selected
+        logger.debug "ADD #{@character.name}"
+        @section.characters << @character
+      else
+        logger.debug "REMOVE #{@character.name}"
+        @section.characters.delete(@character)
+      end
+    end
+    @section.reload
+    respond_to do |format|
+      format.html { render json: @section.characters.map(&:id) }
+    end
+  end
 end

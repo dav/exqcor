@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916175459) do
+ActiveRecord::Schema.define(:version => 20130917141440) do
 
   create_table "characters", :force => true do |t|
     t.string   "name"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20130916175459) do
   add_index "characters_sections", ["section_id"], :name => "index_characters_sections_on_section_id"
 
   create_table "lines", :force => true do |t|
-    t.string   "text"
+    t.text     "text"
     t.integer  "ordering"
     t.integer  "sub_section_id"
     t.integer  "character_id"

@@ -1,26 +1,13 @@
-<h1>Writing for <i><%= @sub_section.section.play.title %></i>, "<%= @section.name %>"</h1>
-<h3>
-  <%= @section.description %>
-</h3>
 <div>
 This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>.
 </div>
 
 <hr>
 
-<script>
-	var myCountdown1 = new Countdown({
-		time: 5*60,
-		onComplete	: countdownComplete
-		});
-
-    function countdownComplete(){
-      	alert("Your time is up. Please finish up quickly and click the \"Go to next writer\" below to load the next section for the next person.");
-      	$('#next_sub_section_link').css("background-color", "green");
-      	$('#next_sub_section_link').css('text-decoration','blink');
-      	$('#next_sub_section_link').css('color','pink');
-    }
-</script>
+<h1>Writing for <i><%= @sub_section.section.play.title %></i>, "<%= @section.name %>"</h1>
+<h3>
+  <%= @section.description %>
+</h3>
 
 <hr>
 
@@ -28,12 +15,15 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
   <% if @last_section.nil? %>
     This is the first section, so no previous line, just start writing!
   <% else %>
-    <div style="background-color: yellow">
     Previous line:
+    <div style="background-color: yellow">
 
     <% if @last_line %>
       <table>
         <tr>
+          <td>
+            <input type="button" class="remove-line" value="&nbsp;" id="placeholder-x"/>
+          </td>
           <td align="right" style="margin-top: 20px">
             <div style="font-weight: bold; font-size:150%"><%= @last_line.character.name %>:</div>
           </td>
@@ -52,7 +42,26 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
 <div id="sub_section_writer">
 </div>
 
+<hr>
+
 <div style="margin: 40px 0; font-size: 200%;">
+
+<script>
+	var myCountdown1 = new Countdown({
+		time: 5*60,
+		onComplete	: countdownComplete
+		});
+
+    function countdownComplete(){
+      	alert("Your time is up. Please finish up quickly and click the \"Go to next writer\" below to load the next section for the next person.");
+      	$('#next_sub_section_link').css("background-color", "green");
+      	$('#next_sub_section_link').css('text-decoration','blink');
+      	$('#next_sub_section_link').css('color','pink');
+    }
+</script>
+</div>
+
+<div style="font-size: 200%;">
   <% 
     next_section = @sub_section.next_section 
     if next_section.nil?

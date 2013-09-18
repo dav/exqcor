@@ -12,6 +12,12 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
 <hr>
 
 <div>
+	Available props: <%= raw @section.props.map {|prop| ["<b>#{prop.name}</b>", "<em>#{prop.description}</em>"].join(': ') }.join(', ') %>
+</div>
+
+<hr>
+
+<div>
   <% if @last_section.nil? %>
     This is the first section, so no previous line, just start writing!
   <% else %>

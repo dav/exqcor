@@ -37,7 +37,7 @@
   	  <% if @character && @character.id == line.character.id %>
         <div style="font-weight: bold; background: yellow; display: inline"><%= line.text %></div>
   	  <% elsif line.character.name =~ /VOSD/ ||  line.character.name.strip == 'Voice of Stage Directions' %>
-    	  <div style="font-weight: bold; background: lightgray; display: inline; padding: 5px 0"><%= line.text %></div>
+    	  <div style="font-weight: bold; background: lightgray; display: inline; padding: 5px 0; text-transform:uppercase;"><%= line.text %></div>
   	  <% else %>
         	<div><%= line.text %></div>
   	  <% end %>

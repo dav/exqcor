@@ -4,7 +4,7 @@
 
 <hr>
 
-<% @plays.sort_by {|p| p.created_at}.each do |play| %>
+<% @plays.sort_by {|p| p.created_at}.reverse.each do |play| %>
 <div style="margin: 10px 0; border: 1px solid black; max-width: 600px">
   <div class="play-title"><%= play.title %></div>
   <div  class="description"><%= play.description %></div>

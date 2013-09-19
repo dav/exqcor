@@ -12,6 +12,18 @@
  *= require_tree .
  */
 
+.play-title {
+   font-size: 130%;
+   font-weight: bold;
+   font-color: darkgray;
+}
+
+.description {
+  font-size: 100%;
+  font-color: darkgray;
+  font-style: italic;
+}
+
 .instructions {
   font-size: 80%;
   font-color: darkgray;

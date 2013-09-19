@@ -1,27 +1,23 @@
-  
-
 <h1>Listing plays</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
++ <%= link_to 'Create a new Play', new_play_path %>
 
-<% @plays.each do |play| %>
-  <tr>
-    <td><%= play.title %></td>
-    <td><%= play.description %></td>
-    <td><%= link_to 'Show', play %></td>
-    <td><%= link_to 'Edit', edit_play_path(play) %></td>
-    <td><%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<hr>
+
+<% @plays.sort_by {|p| p.created_at}.each do |play| %>
+<div style="margin: 10px 0; border: 1px solid black; max-width: 600px">
+  <div class="play-title"><%= play.title %></div>
+  <div  class="description"><%= play.description %></div>
+  <div class="stats">
+    <div><%= play.sections.size %> sections</div>
+    <div><%= play.lines.size %> lines</div>
+  </div>
+  <div>
+    [
+    <%= link_to 'Show', play %>
+    |<%= link_to 'Edit', edit_play_path(play) %><
+    |<%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' } %>
+    ]
+  </div>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Play', new_play_path %>

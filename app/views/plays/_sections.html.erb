@@ -4,8 +4,12 @@
     <tr>
     	<td colspan="2" style="font-size: 140%; font-weight: bold; padding-top: 10px;"><%= section.name %></td>
     	<% if editable %>
-    	<td>[<%= link_to "delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %>,
-    	  <%= link_to "View all lines for #{section.name}", play_section_path(@play, section) %>]</td>
+    	<td>[
+    	  <%= link_to "Delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %> |
+    	  <%= link_to "Edit", "/plays/#{@play.id}/sections/#{section.id}/edit" %> |
+    	  <%= link_to "View all lines for #{section.name}", play_section_path(@play, section) %>
+    	  ]
+    	</td>
     	<% end %>
     </tr>
     <tr>

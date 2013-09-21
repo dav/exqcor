@@ -13,7 +13,8 @@ class SectionsController < ApplicationController
 
   # GET /Sections/1/edit
   def edit
-    @section = section.find(params[:id])
+    @play = Play.find(params[:play_id])
+    @section = Section.find(params[:id])
   end
 
   def show

@@ -24,18 +24,20 @@
         description = " (#{line.character.description})"
         shown_characters_this_section << line.character.id
       end
+      
+      is_highlight_character = (@character && @character.id == line.character.id)
     %>
   <div style="margin-top: 20px; font-family: courier; font-size: 12pt; line-height: 150%;">
-  	  <% if @character && @character.id == line.character.id %>
-        	<div style="font-weight: bold"><%= line.character.name %>:<span style=""><%= description %></span></div>
+  	  <% if is_highlight_character %>
+        	<div class="highlighted"><%= line.character.name %>:<span style=""><%= description %></span></div>
   	  <% else %>
       	<div style=""><%= line.character.name %>:<span style=""><%= description %></span></div>
   	  <% end %>
   </div>
 
   <div style="font-family: courier; font-size: 12pt; line-height: 150%;">
-  	  <% if @character && @character.id == line.character.id %>
-        <div style="font-weight: bold; background: yellow; display: inline"><%= line.text %></div>
+  	  <% if is_highlight_character %>
+        <div class="highlighted"><%= line.text %></div>
   	  <% elsif line.character.name =~ /VOSD/ ||  line.character.name.strip == 'Voice of Stage Directions' %>
     	  <div style="font-weight: bold; background: lightgray; display: inline; padding: 5px 0; text-transform:uppercase;"><%= line.text %></div>
   	  <% else %>

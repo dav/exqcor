@@ -29,3 +29,9 @@
   font-color: darkgray;
   background-color: lightgray;
 }
+
+.highlighted {
+  font-weight: bold; 
+  background: yellow; 
+  display: inline;
+}

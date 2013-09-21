@@ -1,7 +1,7 @@
-<td>
+<td valign="top">
   <input type="button" class="remove-line" value="X" id="delete-line-<%=@line.get('id')%>"/>
 </td>
-<td align="right" style="margin-top: 20px">
+<td align="right" valign="top" style="margin-top: 20px">
   <div style="font-weight: bold"><%= @character.get('name') %>:</div>
 </td>
 <td style="">

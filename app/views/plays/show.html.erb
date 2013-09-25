@@ -13,5 +13,9 @@
 
 <%= render 'characters', :editable => false %>
 
+<div style="font-size:110%; padding: 10px 0;">
+	<%= link_to 'View Script', full_script_url(@play)%>
+</div>
+	
 <%= link_to 'Edit', edit_play_path(@play) %> |
 <%= link_to 'Back', plays_path %>

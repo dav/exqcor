@@ -35,3 +35,10 @@
   background: yellow; 
   display: inline;
 }
+
+.vosd {
+	font-style: italic; 
+	font-weight: bold; 
+	display: inline; 
+	padding: 5px 0;
+}

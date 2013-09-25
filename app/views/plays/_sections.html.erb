@@ -28,10 +28,9 @@
     </p>
 
     <div>
-    <% @play.characters.each do |character| %>
+    <% @play.real_characters.each do |character| %>
       <div>
       <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
-      
         data: {
           remote: true,
           url: section_characters_url(section.id, character.id)

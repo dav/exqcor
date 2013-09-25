@@ -12,7 +12,7 @@ class Exqcor.Routers.SubSections extends Backbone.Router
 	  #console.log "with response #{response}"
 	  #console.log "with response #{JSON.stringify(model.toJSON())}"
 	  lines = new Exqcor.Collections.Lines model.get('lines')
-	  netCharactersArray = response['section']['characters']
+	  netCharactersArray = response['section']['sorted_characters']
 	  #console.log "play #{netPlay}"
 	  characters = new Exqcor.Collections.Characters netCharactersArray
 	  model.set('characters', characters)

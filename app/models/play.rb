@@ -31,4 +31,8 @@ class Play < ActiveRecord::Base
     vosd
   end
   
+  def real_characters
+    self.characters.reject {|c| c == self.VOSD}
+  end
+  
 end

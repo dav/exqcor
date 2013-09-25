@@ -5,7 +5,8 @@ class Section < ActiveRecord::Base
   has_many :sub_sections, :inverse_of => :section, :order => 'ordering ASC', :dependent => :delete_all
   has_and_belongs_to_many :characters
   
-  after_create :build_first_sub_section
+  after_create :build_first_sub_section, :add_vosd
+  after_find :ensure_characters_include_vosd
   
   def next_ordering_index
     return 0 if self.sub_sections.size == 0
@@ -19,9 +20,21 @@ class Section < ActiveRecord::Base
     return max+1
   end
   
+  def ensure_characters_include_vosd
+    add_vosd unless self.characters.include? self.play.VOSD
+  end
+  
+  def add_vosd
+    self.characters << self.play.VOSD
+  end
+  
   def build_first_sub_section
     ss = SubSection.new(:ordering => next_ordering_index)
     ss.section = self
     return ss.save
+  end
+  
+  def sorted_characters
+    [self.play.VOSD] + self.characters.reject {|c| c==self.play.VOSD}
   end
 end

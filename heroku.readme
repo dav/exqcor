@@ -4,3 +4,8 @@ heroku	git@heroku.com:murmuring-ocean-8656.git (push)
 origin	git@github.com:dav/exqcor.git (fetch)
 origin	git@github.com:dav/exqcor.git (push)
 
+To backup/restore heroku data after a show
+https://blog.heroku.com/archives/2009/3/18/push_and_pull_databases_to_and_from_heroku
+gem install taps
+To pull from heroku into a local database agnostic file:
+$ heroku db:pull

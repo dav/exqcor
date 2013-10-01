@@ -42,3 +42,5 @@
 	display: inline; 
 	padding: 5px 0;
 }
+
+.pagebreak { page-break-before: always; }

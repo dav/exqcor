@@ -25,6 +25,14 @@ class SectionsController < ApplicationController
     end
   end
 
+  def script_package
+    @section = Section.find(params[:section_id])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   # POST /Sections
   # POST /Sections.json
   def create

@@ -13,6 +13,7 @@ Exqcor::Application.routes.draw do
   resources :lines
 
   match 'plays/:id/full_script' => 'plays#full_script', :as => :full_script
+  match 'sections/:section_id/script_package' => 'sections#script_package', :as => :section_script_package
 
   match 'sections/:section_id/characters/:character_id' => 'sections#characters', :as => :section_characters
 

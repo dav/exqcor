@@ -24,6 +24,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 			console.log "CHARACTER #{character.get('id')} #{character.get('name')}"
 			view = new Exqcor.Views.CharacterOptionItem model: character
 			@$('#character-id-select').append(view.render().el)
+			@$('#character-id-select').attr('size', characters.length)
 		# add lines
 		@collection.each (line) =>
 			character = characters.get(line.get('character_id'))

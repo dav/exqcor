@@ -18,7 +18,6 @@ class SubSectionsController < ApplicationController
     @play = Play.find(params[:play_id])
     @section = Section.find(params[:section_id])
     @sub_section = SubSection.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json do 
@@ -34,6 +33,7 @@ class SubSectionsController < ApplicationController
     @section = Section.find(params[:section_id])
     @sub_section = SubSection.find(params[:id])
     @last_section = nil
+    @title = "ExqCor: #{@play.title}; #{@section.name}; Writer #{@sub_section.ordering+1}"
     if @section.sub_sections.size > 1
       index = @sub_section.ordering
       @section.sub_sections.each do |ss|

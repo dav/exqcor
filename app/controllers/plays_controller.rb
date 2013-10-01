@@ -3,6 +3,7 @@ class PlaysController < ApplicationController
   # GET /plays.json
   def index
     @plays = Play.all
+    @title = "ExqCor: List Plays"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,6 +47,7 @@ class PlaysController < ApplicationController
   # GET /plays/1/edit
   def edit
     @play = Play.find(params[:id])
+    @title = "Admin Edit: #{@play.title}"
   end
 
   # POST /plays

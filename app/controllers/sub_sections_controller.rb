@@ -53,7 +53,7 @@ class SubSectionsController < ApplicationController
     play = @sub_section.section.play
     section = @sub_section.section
     
-    next_ss = @sub_section.next_section
+    next_ss = @sub_section.next_sub_section
     if next_ss.nil?
       next_ss = SubSection.new(:ordering => @sub_section.section.next_ordering_index)
       next_ss.section = section

@@ -69,15 +69,15 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
 
 <div style="font-size: 200%;">
   <% 
-    next_section = @sub_section.next_section 
-    if next_section.nil?
+    next_ss = @sub_section.next_sub_section 
+    if next_ss.nil?
     %>
    <span id="next_sub_section_link">
     <%= link_to "Go to next writer", "/sub_sections/#{@sub_section.id}/next_writer" %>
     </span>
   <% else %>
    <span id="next_sub_section_link">
-    <%= link_to "Go to next writer", "/plays/#{@section.play.id}/sections/#{@section.id}/sub_sections/#{next_section.id}/edit#write/play/#{@section.play.id}/section/#{@section.id}/sub_section/#{next_section.id}" %>
+    <%= link_to "Go to next writer", "/plays/#{@section.play.id}/sections/#{@section.id}/sub_sections/#{next_ss.id}/edit#write/play/#{@section.play.id}/section/#{@section.id}/sub_section/#{next_ss.id}" %>
     </span>
   <% end %>
 </div>

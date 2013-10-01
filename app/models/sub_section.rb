@@ -15,7 +15,8 @@ class SubSection < ActiveRecord::Base
     return max+1
   end
   
-  def next_section
+  def next_sub_section
+    return self if self.lines.size ==0
     sss = self.section.sub_sections
     sss.each_with_index do |sub_section, i|
       if sub_section==self

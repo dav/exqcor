@@ -5,7 +5,7 @@
 <label>Add line:</label><br/>
   <select id="character-id-select">
   </select>
-  <input id="add-line" style="width: 80%"/>
+  <input id="add-line" type="text" autocomplete="off" style="width: 80%"/>
   <br/>
   <input id="add-line-button" type="submit" value="Add Line" style="margin-left: 60px; margin-top: 10px"/>
 </form>

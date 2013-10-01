@@ -2,12 +2,22 @@
 </table>
 <div style="margin-top: 20px; background-color: lightgray">
 <form>
-<label>Add line:</label><br/>
-  <select id="character-id-select">
-  </select>
-  <input id="add-line" type="text" autocomplete="off" style="width: 80%"/>
-  <br/>
-  <input id="add-line-button" type="submit" value="Add Line" style="margin-left: 60px; margin-top: 10px"/>
+<table border=1 style="width:100%">
+  <tr align="left">
+    <th>1) Select character</th>
+    <th>2) Type in their line (or stage direction if VOSD)</th>
+  </tr>
+  <tr>
+    <td>
+      <select id="character-id-select">
+      </select>
+    </td>
+    <td width="99%">
+      <input id="add-line" type="text" autocomplete="off" style="width: 100%"/>
+    </td>
+  </tr>
+</table>
+<input id="add-line-button" type="submit" value="Add Line" style="margin-left: 60px; margin-top: 10px"/>
 </form>
 </div>
 

@@ -16,27 +16,20 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
     This is the first section, so no previous line. Just start writing!
     <hr/>
   <% else %>
-    Previous line:
-    <div style="background-color: yellow">
-
+    <span style="background-color: yellow">Previous line:</span>
     <% if @last_line %>
-      <table>
+      <table  style="background-color: yellow">
         <tr>
-          <td>
-            <input type="button" class="remove-line" value="&nbsp;" id="placeholder-x"/>
-          </td>
           <td align="right" style="margin-top: 20px">
-            <div style="font-weight: bold; font-size:150%"><%= @last_line.character.name %>:</div>
+            <div class="script-line"><%= @last_line.character.name %>:</div>
           </td>
           <td style="">
-            <div style="font-size:150%"><%= @last_line.text %></div>
+            <div class="script-line"><%= @last_line.text %></div>
           </td>
       </table>
     <% else %>
       No last line in previous section yet
     <% end %>
-
-    </div>
   <% end %>
 </div>
   

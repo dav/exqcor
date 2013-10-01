@@ -2,8 +2,8 @@
   <input type="button" class="remove-line" value="X" id="delete-line-<%=@line.get('id')%>"/>
 </td>
 <td align="right" valign="top" style="margin-top: 20px">
-  <div style="font-weight: bold"><%= @character.get('name') %>:</div>
+  <div class="script-line"><%= @character.get('name') %>:</dav>
 </td>
 <td style="">
-  <div><%= @line.get 'text' %></div>
+  <div class="script-line"><%= @line.get 'text' %></div>
 </td>

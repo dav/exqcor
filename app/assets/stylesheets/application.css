@@ -36,6 +36,12 @@
   display: inline;
 }
 
+.script-line {
+	font-family: courier; 
+	font-size: 12pt; 
+	line-height: 150%;
+}
+
 .vosd {
 	font-style: italic; 
 	font-weight: bold; 

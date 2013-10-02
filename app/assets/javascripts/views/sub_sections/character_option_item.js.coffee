@@ -3,6 +3,7 @@ class Exqcor.Views.CharacterOptionItem extends Backbone.View
   
   attributes: ->
     value: @model.get('id')
+    title: @model.get('name')+': '+@model.get('description')
   
   template: JST['characters/option']
   

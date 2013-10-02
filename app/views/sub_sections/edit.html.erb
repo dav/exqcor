@@ -1,3 +1,8 @@
+<% content_for :head do %>
+<link rel="stylesheet" type="text/css" href="/assets/jquery.countdown.css"> 
+<script type="text/javascript" src="/assets/jquery.countdown.js"></script>
+<% end %>
+
 <div>
 This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>.
 </div>
@@ -38,24 +43,23 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
 
 <hr>
 
-<div style="margin: 40px 0; font-size: 200%;">
-
-<script>
-	var myCountdown1 = new Countdown({
-		time: 5*60,
-		onComplete	: countdownComplete
-		});
-
-    function countdownComplete(){
-      	alert("Your time is up. Please finish up quickly and click the \"Go to next writer\" below to load the next section for the next person.");
-      	$('#next_sub_section_link').css("background-color", "green");
-      	$('#next_sub_section_link').css('text-decoration','blink');
-      	$('#next_sub_section_link').css('color','pink');
-    }
-</script>
+<div id="writer-countdown" style="width: 20em;">
 </div>
+<script>
+function countdownComplete(){
+  	alert("Your time is up. Please finish up quickly and click the \"Go to next writer\" below to load the next section for the next person.");
+  	$('#next-prompt').show();
+}
+$('#writer-countdown').countdown({until: '+5m', 
+                               format: 'MS', 
+                               onExpiry: 
+                               countdownComplete, 
+                               layout:'Time left: <b>{mn} {ml}, {sn} {sl}</b>'});
+</script>
+<br/>
 
-<div style="font-size: 200%;">
+<div id="next-prompt" style="font-size: 200%;" hidden="true">
+  <hr>
   <% 
     next_section = @sub_section.next_section 
     if next_section.nil?

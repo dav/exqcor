@@ -50,3 +50,7 @@
 }
 
 .pagebreak { page-break-before: always; }
+
+#character-id-select {
+	max-width: 20em;
+}

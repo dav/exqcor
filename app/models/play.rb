@@ -41,4 +41,15 @@ class Play < ActiveRecord::Base
     self.characters.reject {|c| c == self.VOSD}
   end
   
+  def average_section_writing_duration
+    return 0 if self.sections.size == 0
+    durs = []
+    self.sections.each do |s|
+      durs << s.writing_duration
+    end
+    
+    durs.inject{ |sum, s| sum + s }.to_f / durs.size
+  end
+  
+  
 end

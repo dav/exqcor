@@ -25,6 +25,8 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 			view = new Exqcor.Views.CharacterOptionItem model: character
 			@$('#character-id-select').append(view.render().el)
 			@$('#character-id-select').attr('size', characters.length)
+		# Start off with no character selected
+		@$('#character-id-select').prop("selectedIndex", -1);
 		# add lines
 		@collection.each (line) =>
 			character = characters.get(line.get('character_id'))

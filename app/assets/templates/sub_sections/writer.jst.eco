@@ -28,7 +28,12 @@
 </div>
 
 <script>
-	$('#character-id-select').change(function() {
-		$('#add-line').focus();
-	})
+  $('#character-id-select').change(function() {
+    console.log('Character selected');
+    $('#add-line').focus();
+    $('#writer-countdown').countdown({until: '+5m', 
+                                   onExpiry: 
+                                   countdownComplete, 
+                                   layout:'Time left: <b>{mn} {ml}, {sn} {sl}</b>'});
+	});
 </script>

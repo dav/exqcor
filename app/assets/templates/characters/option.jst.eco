@@ -1,1 +1,1 @@
-<%= @character.get('name') %>: <%= @character.get('description') %>
+<b><%= @character.get('name') %></b>: <span style="font-size: 80%"><%= @character.get('description') %></span>

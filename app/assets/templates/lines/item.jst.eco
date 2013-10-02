@@ -2,7 +2,7 @@
   <input type="button" class="remove-line" value="X" id="delete-line-<%=@line.get('id')%>"/>
 </td>
 <td align="right" valign="top" style="margin-top: 20px">
-  <div class="script-line"><%= @character.get('name') %>:</dav>
+  <div class="script-line" style="white-space:nowrap;"><%= @character.get('name') %>:</dav>
 </td>
 <td style="">
   <div class="script-line"><%= @line.get 'text' %></div>

@@ -1,0 +1,72 @@
+<% 
+
+%>
+
+<table>
+	<tr>
+		<td>
+			Total Lines
+		</td>
+		<td>
+			<%= @play.lines.size %>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>
+			Total Writers
+		</td>
+		<td>
+			<%= @play.sub_sections.size %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Average Lines per Writer
+		</td>
+		<td>
+			<%= "%.2f" % (@play.lines.size.to_f / @play.sub_sections.size) %>
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			Average Lines per Scene
+		</td>
+		<td>
+			<%= "%.2f" % (@play.lines.size.to_f / @play.sections.size) %>
+		</td>
+	</tr>
+
+    <% @play.sections.each do |section| %>
+    	<% section.sub_sections.each do |sub_section|
+            dur = sub_section.writing_duration
+			next if dur.nil? %>
+			<tr>
+				<td style="font-size: 80%">
+					<%= section.name %>; Writer <%= sub_section.ordering + 1 %> Writing Time
+				</td>
+				<td style="font-size: 80%">
+					<%= "%.1f" % (dur/60) %> minutes
+				</td>
+			</tr>
+	    <% end %>
+		<tr>
+			<td>
+				<%= section.name %>; TOTAL Writing Time
+			</td>
+			<td>
+				<%= "%.1f" % (section.writing_duration/60) %> minutes
+			</td>
+		</tr>
+    <% end %>
+	<tr>
+		<td>
+			Average Writing Time per Scene
+		</td>
+		<td>
+			<%= "%.2f" % (@play.lines.size.to_f / @play.sections.size) %>
+		</td>
+	</tr>
+</table>

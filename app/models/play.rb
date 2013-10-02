@@ -7,13 +7,19 @@ class Play < ActiveRecord::Base
   def setup_play_after_create
     create_vosd
   end
-  
+
+  def sub_sections
+    ss = []
+    sections.each do |s|
+      ss += s.sub_sections
+    end
+    ss
+  end
+      
   def lines
     lines = []
-    sections.each do |s|
-      s.sub_sections.each do |ss|
+    self.sub_sections.each do |ss|
         lines += ss.lines
-      end
     end
     lines
   end

@@ -37,4 +37,16 @@ class Section < ActiveRecord::Base
   def sorted_characters
     [self.play.VOSD] + self.characters.reject {|c| c==self.play.VOSD}
   end
+  
+  def writing_duration
+    return 0 if self.sub_sections.size == 0
+    total = 0
+    self.sub_sections.each do |ss|
+      dur = ss.writing_duration
+      next if dur.nil?
+      total += dur
+    end
+    total
+  end
+  
 end

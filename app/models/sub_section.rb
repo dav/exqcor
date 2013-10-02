@@ -26,4 +26,19 @@ class SubSection < ActiveRecord::Base
     end
     nil
   end
+  
+  def writing_duration
+    # because currently we may prime the pump with an initial VOSD line, just toss out
+    # the very first sub_section in a scene. It shouldn't affect the math much.
+    return nil if self.lines.size < 2
+    start_line = self.lines.min_by(&:created_at)
+    showtime_lines = self.lines.reject {|line| line == start_line }
+    first_line = showtime_lines.min_by(&:created_at)
+    last_line = showtime_lines.max_by(&:created_at)
+    return nil if last_line.nil? || first_line.nil?
+    
+    seconds = (last_line.created_at - first_line.created_at)
+    seconds
+  end
+  
 end

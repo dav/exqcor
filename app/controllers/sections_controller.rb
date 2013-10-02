@@ -32,6 +32,15 @@ class SectionsController < ApplicationController
       format.html
     end
   end
+  
+  def script_for_character
+    @section = Section.find(params[:section_id])
+    @character = Character.find(params[:character_id])
+
+    respond_to do |format|
+      format.html
+    end
+  end
 
   # POST /Sections
   # POST /Sections.json

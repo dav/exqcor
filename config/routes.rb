@@ -14,6 +14,7 @@ Exqcor::Application.routes.draw do
 
   match 'plays/:id/full_script' => 'plays#full_script', :as => :full_script
   match 'sections/:section_id/script_package' => 'sections#script_package', :as => :section_script_package
+  match 'sections/:section_id/character/:character_id' => 'sections#script_for_character', :as => :section_character_script
 
   match 'sections/:section_id/characters/:character_id' => 'sections#characters', :as => :section_characters
 

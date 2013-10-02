@@ -4,8 +4,8 @@
 <form>
 <table border=0 style="width:100%">
   <tr align="left">
-    <th>1) Select character</th>
-    <th>2) Type in their line (or stage direction if VOSD)</th>
+    <th id="select-character-label">1) Select character</th>
+    <th id="add-line-label" hidden="true">2) Type in their line (or stage direction if VOSD)</th>
   </tr>
   <tr>
     <td>
@@ -13,7 +13,7 @@
       </select>
     </td>
     <td width="99%"  valign="top">
-      <input id="add-line" type="text" autocomplete="off" style="width: 100%" class="script-line"/>
+      <input id="add-line" type="text" autocomplete="off" style="width: 100%" class="script-line" hidden="true"/>
     </td>
   </tr>
   <tr>
@@ -28,7 +28,14 @@
 </div>
 
 <script>
-	$('#character-id-select').change(function() {
-		$('#add-line').focus();
-	})
+  $('#character-id-select').change(function() {
+    console.log('Character selected');
+    $('#writer-countdown').countdown({until: '+5m', 
+                                   onExpiry: 
+                                   countdownComplete, 
+                                   layout:'Time left: <b>{mn} {ml}, {sn} {sl}</b>'});
+    $('#add-line').show();
+    $('#add-line-label').show();
+    $('#add-line').focus();
+	});
 </script>

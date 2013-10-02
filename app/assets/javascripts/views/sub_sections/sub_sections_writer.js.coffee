@@ -13,7 +13,6 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		console.log 'in sub_sections writer init with collection of size '+@collection.size()
 		console.log 'in sub_sections writer init with play_id of '+@model.get('play_id')
 		@collection.bind 'reset', @render, @
-		#@collection.bind 'add', @addLine, @
 		null
 
 	render: ->
@@ -25,6 +24,8 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 			view = new Exqcor.Views.CharacterOptionItem model: character
 			@$('#character-id-select').append(view.render().el)
 			@$('#character-id-select').attr('size', characters.length)
+		# Start off with no character selected
+		@$('#character-id-select').prop("selectedIndex", -1);
 		# add lines
 		@collection.each (line) =>
 			character = characters.get(line.get('character_id'))
@@ -63,6 +64,10 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		character = characters.get(line.get('character_id'))
 		view = new Exqcor.Views.LinesItem model: line, character: character, id: "line-"+line.get('id')
 		@$('#lines').append(view.render().el)
+		# reset for next line
+		@$('#add-line').hide();
+		@$('#add-line-label').hide();
+		@$('#character-id-select').prop("selectedIndex", -1);
 		@
 		
 window.onbeforeunload = ->

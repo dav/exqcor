@@ -27,18 +27,36 @@
       <span class="instructions">Select the characters that are available for this scene.</span>
     </p>
 
-    <div>
+    <table>
+      <tr>
+        <td>
+      </td>
+      <td>
+        VOSD
+      </td>
+      <td>
+        <%= link_to 'Script', section_character_script_url(section, @play.VOSD) %>
+      </td>
+      
     <% @play.real_characters.each do |character| %>
-      <div>
+      <tr>
+        <td>
       <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
         data: {
           remote: true,
           url: section_characters_url(section.id, character.id)
         }
       )  %> 
-      <%= character.name %></div>
+      </td>
+      <td>
+        <%= character.name %>
+      </td>
+      <td>
+        <%= link_to 'Script', section_character_script_url(section, character) %>
+      </td>
+    </tr>
     <% end %>
-    </div>
+    </table>
   </td>
   </tr>
 

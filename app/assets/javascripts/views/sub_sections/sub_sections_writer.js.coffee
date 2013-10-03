@@ -19,6 +19,10 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		$(@el).html(@template())
 		# add character choices
 		characters = @model.get('characters')
+		
+		# TODO This isn't good, but not sure how else to access the characters from JS defined outside of Backbone???
+		window.characters = characters
+		
 		characters.each (character) =>
 			console.log "CHARACTER #{character.get('id')} #{character.get('name')}"
 			view = new Exqcor.Views.CharacterOptionItem model: character

@@ -1,8 +1,8 @@
 <h3>Scenes</h3>
-<% @play.sections.each do |section| %>
+<% @play.sections.each_with_index do |section, index| %>
   <table style="margin-left: 20px; margin-top: 20px; border: 1px solid gray;">
     <tr>
-    	<td colspan="2" style="font-size: 140%; font-weight: bold; padding-top: 10px;"><%= section.name %></td>
+    	<td colspan="2" style="font-size: 140%; font-weight: bold; padding-top: 10px;">(Sc. <%= index+1 %>) <%= section.name %></td>
     	<% if editable %>
     	<td>[
     	  <%= link_to "Delete", "/plays/#{@play.id}/sections/#{section.id}", :confirm => "Do you really want to delete #{section.name}?", :method => :delete %> |

@@ -36,6 +36,7 @@
                                    countdownComplete, 
                                    layout:'Time left: <b>{mn} {ml}, {sn} {sl}</b>'});
     $('#add-line').show();
+    $('#stop-countdown').show();
     var instructions = '2) Type in the line for <span class="script-line" style="background-color: yellow">'+character.get('name')+'</span>.';
     if (characterName == 'VOSD') {
        instructions += ' This line will be spoken aloud by the onstage narrator to direct the action.';

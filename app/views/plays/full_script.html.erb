@@ -5,8 +5,6 @@
 <hr>
 
 <% @play.sections.each do |section| %>
-  <% shown_characters_this_section = [] %>
-
   <div style="font-size: 170%; font-weight: bold">
     <%= section.name %>
   </div>
@@ -19,19 +17,13 @@
 
     <% ss.lines.each do |line| %>
     <%
-      description = nil
-      if !shown_characters_this_section.include? line.character.id
-        description = " (#{line.character.description})"
-        shown_characters_this_section << line.character.id
-      end
-      
       is_highlight_character = (@character && @character.id == line.character.id)
     %>
   <div style="margin-top: 20px; font-family: courier; font-size: 12pt; line-height: 150%;">
   	  <% if is_highlight_character %>
-        	<div class="highlighted"><%= line.character.name %>:<span style=""><%= description %></span></div>
+        	<div class="highlighted"><%= line.character.name %>:</div>
   	  <% else %>
-      	<div style=""><%= line.character.name %>:<span style=""><%= description %></span></div>
+      	<div style=""><%= line.character.name %>:</div>
   	  <% end %>
   </div>
 

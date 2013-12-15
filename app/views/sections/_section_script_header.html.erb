@@ -1,0 +1,9 @@
+<div style="text-align: center; margin: auto">
+    <div style="font-size: 150%; font-weight: bold; margin: 0.75em 0">
+      Scene: <%= section.name %>
+    </div>
+    <div style="margin: 0.25em 0">
+      <em><%= section.description %></em>
+    </div>
+    <%= render 'characters/all_description_table', :characters => section.sorted_characters %>
+</div>

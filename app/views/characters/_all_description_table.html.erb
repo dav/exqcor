@@ -1,0 +1,11 @@
+<div>
+    <table style="maxwidth: 70%; margin: auto; border: 1px dashed black; padding: 0 10px 10px 10px;">
+        <tr><th colspan="2">Cast</th></tr>
+    <% characters.each do |character| %>
+        <tr>
+            <td style="vertical-align: top; font-weight:bold; text-align: right"><%= character.name %></td>
+            <td style="text-align: left"><%= character.description %></td>
+        </tr>
+    <% end %>
+    </table>
+</div>

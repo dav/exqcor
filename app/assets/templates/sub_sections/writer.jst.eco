@@ -32,9 +32,12 @@
     var character = window.characters.get($('#character-id-select option:selected').val())
     var characterName = character.get('name');
     $('#writer-countdown').countdown({until: '+5m', 
-                                   onExpiry: 
-                                   countdownComplete, 
-                                   layout:'Time left: <b>{mn} {ml}, {sn} {sl}</b>'});
+                                   onExpiry: countdownComplete, 
+                                   layout: 'Time left: <b>{mn} {ml}, {sn} {sl}</b>',
+                                   onTick: function(periods) {
+                                       if (periods[5]==0) $('#writer-countdown').css('color', 'red');
+                                   }
+                                   });
     $('#add-line').show();
     $('#stop-countdown').show();
     var instructions = '2) Type in the line for <span class="script-line" style="background-color: yellow">'+character.get('name')+'</span>.';
@@ -44,5 +47,7 @@
     $('#add-line-label').html(instructions);
     $('#add-line-label').show();
     $('#add-line').focus();
+    
+    window.scrollTo(0,document.body.scrollHeight);
 	});
 </script>

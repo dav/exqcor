@@ -3,7 +3,7 @@
 
 <%= render 'section_script_header', :section => @section %>
     
-<div style="font-size: 150%; font-weight: bold; margin: 0.5em 0">
+<div style="font-size: 150%; font-weight: bold; width: 100%; text-align: center; padding: 20px 0">
       Role: <%= @character.name %>  
 </div>
 
@@ -14,7 +14,7 @@
   <%
     is_highlight_character = (@character && @character.id == line.character.id)
   %>
-  <div class="script-line" style="margin-top: 20px;">
+  <div class="script-line" style="margin-top: 20px; padding: 0 20em;">
 	  <% if is_highlight_character %>
       	<div class="highlighted"><%= line.character.name %>:</div>
 	  <% else %>
@@ -22,7 +22,7 @@
 	  <% end %>
   </div>
 
-  <div class="script-line">
+  <div class="script-line" style=" padding: 0 10em;">
 	  <% if is_highlight_character %>
       <div class="highlighted"><%= line.text %></div>
 	  <% elsif line.character.name =~ /VOSD/ ||  line.character.name.strip == 'Voice of Stage Directions' %>

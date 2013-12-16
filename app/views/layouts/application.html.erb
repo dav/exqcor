@@ -9,5 +9,13 @@
 </head>
 <body>
   <%= yield %>
+  <div id="overlay"></div>
+  <script>
+  $('#overlay').click(function(e){
+      $('#overlay').fadeOut(300, function(){
+          $('.expose').css('z-index','1');
+      });
+  });
+  </script>
 </body>
 </html>

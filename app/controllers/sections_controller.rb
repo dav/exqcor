@@ -93,8 +93,10 @@ class SectionsController < ApplicationController
   def characters
     @section = Section.find(params[:section_id])
     @character = Character.find(params[:character_id])
+    
     character_param = 'character_'+params[:character_id]
     selected = params[character_param] && params[character_param] == 'selected'
+    
     if @section && @character
       if selected
         logger.debug "ADD #{@character.name}"
@@ -103,9 +105,16 @@ class SectionsController < ApplicationController
         logger.debug "REMOVE #{@character.name}"
         @section.characters.delete(@character)
       end
+      
+      if on_stage = params[:start_on_stage]
+        c4s = CharacterForSection.find(:section_id => @section, :character_id => @character)
+        c4s.start_on_stage = on_stage
+        c4s.save
+      end
     end
     @section.reload
     respond_to do |format|
+      # TODO uh, format html render json?
       format.html { render json: @section.characters.map(&:id) }
     end
   end

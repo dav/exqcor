@@ -28,8 +28,19 @@
     </p>
 
     <table>
-      <tr>
-        <td>
+    <tr>
+        <th style="border-bottom: 1px solid black">On Stage</th>
+        <th style="background-color: lightgray; border-bottom: 1px solid black">In Scene</th>
+        <th></th>
+        <th></th>
+    </tr>
+        
+    <tr>
+      <td>
+          <%= check_box_tag('character_'+@play.VOSD.id.to_s, '1', true, :disabled => true)  %> 
+      </td>
+      <td style="background-color: lightgray;">
+          <%= check_box_tag('start_on_stage', '1', true, :disabled => true)  %> 
       </td>
       <td>
         VOSD
@@ -37,24 +48,29 @@
       <td>
         <%= link_to 'Script', section_character_script_url(section, @play.VOSD) %>
       </td>
+    </tr>
       
     <% @play.real_characters.each do |character| %>
       <tr>
-        <td>
+              <td>
+          <%= check_box_tag('start_on_stage', '1', false, :disabled => true)  %> 
+              </td>
+          
+          <td style="background-color: lightgray;">
       <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
         data: {
           remote: true,
           url: section_characters_url(section.id, character.id)
         }
       )  %> 
-      </td>
-      <td>
-        <%= character.name %>
-      </td>
-      <td>
-        <%= link_to 'Script', section_character_script_url(section, character) %>
-      </td>
-    </tr>
+          </td>
+          <td>
+            <%= character.name %>
+          </td>
+          <td>
+            <%= link_to 'Script', section_character_script_url(section, character) %>
+          </td>
+      </tr>
     <% end %>
     </table>
   </td>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130917141440) do
+ActiveRecord::Schema.define(:version => 20131216032945) do
 
   create_table "characters", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130917141440) do
   create_table "characters_sections", :id => false, :force => true do |t|
     t.integer "character_id"
     t.integer "section_id"
+    t.boolean "start_on_stage"
   end
 
   add_index "characters_sections", ["character_id", "section_id"], :name => "index_characters_sections_on_character_id_and_section_id"

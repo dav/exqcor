@@ -9,3 +9,12 @@ https://blog.heroku.com/archives/2009/3/18/push_and_pull_databases_to_and_from_h
 gem install taps
 To pull from heroku into a local database agnostic file:
 $ heroku db:pull
+
+
+NEW, ALL POSTGRESQL
+https://devcenter.heroku.com/articles/heroku-postgres-import-export
+
+# overwrites current local db
+
+heroku pgbackups:capture && curl -o latest.dump `heroku pgbackups:url`
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d exqcor_development latest.dump

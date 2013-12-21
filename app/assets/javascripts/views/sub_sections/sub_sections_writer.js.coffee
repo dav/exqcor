@@ -71,6 +71,7 @@ class Exqcor.Views.SubSectionsWriter extends Backbone.View
 		# reset for next line
 		@$('#add-line').hide();
 		@$('#add-line-label').hide();
+		@$('#add-line-button').hide();
 		@$('#character-id-select').prop("selectedIndex", -1);
 		window.scrollTo(0,document.body.scrollHeight);
 		@

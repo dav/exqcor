@@ -4,11 +4,11 @@
 <form>
 <table border=0 style="width:100%">
   <tr align="left">
-    <th id="select-character-label">1) Select character</th>
+    <th id="select-character-label">1) Select character<br/><span style="font-weight:normal">Red Shirts, props and stage movements, use VOSD.</span></th>
     <th id="add-line-label" hidden="true">2) Type in their line (or stage direction if VOSD)</th>
   </tr>
   <tr>
-    <td>
+    <td rowspan="0">
       <select id="character-id-select" class="script-line">
       </select>
     </td>
@@ -17,10 +17,8 @@
     </td>
   </tr>
   <tr>
-  <td>
-  </td>
-  <td>
-    <input id="add-line-button" type="submit" value="Add Line" style="margin-left: 60px; margin-top: 10px"/>
+  <td valign="top" align="left">
+    <input id="add-line-button" type="submit" value="Add this line" style="margin-left: 60px; margin-top: 10px" hidden="true"/>
   </td>
   </tr>
 </table>
@@ -40,12 +38,15 @@
                                    });
     $('#add-line').show();
     $('#stop-countdown').show();
-    var instructions = '2) Type in the line for <span class="script-line" style="background-color: yellow">'+character.get('name')+'</span>.';
+    var instructions = '2) Type in the line for <span class="script-line" style="background-color: yellow">'+character.get('name')+'</span>. They will read what you type aloud.<br/>';
     if (characterName == 'VOSD') {
-       instructions += ' This line will be spoken aloud by the onstage narrator to direct the action.';
+      instructions += '<span style="font-weight:normal">This line will be spoken aloud by the onstage narrator to direct the action, move actors on or off stage, and introduce props. Example VOSD lines:</br><span class="script-line">A ball rolls across the floor and (character name) picks it up.<br/>Red Shirt #2 sits at a writer station. The chair explodes.</br></span></span>';
+    } else {
+       instructions += '<span style="font-weight:normal">Note: Select VOSD instead to describe what '+character.get('name')+' does. <em>Example VOSD line</em>: <span class="script-line">A ball rolls across the floor and '+character.get('name')+' picks it up.</span></span>'
     }
     $('#add-line-label').html(instructions);
     $('#add-line-label').show();
+    $('#add-line-button').show();
     $('#add-line').focus();
     
     window.scrollTo(0,document.body.scrollHeight);

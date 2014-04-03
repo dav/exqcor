@@ -94,16 +94,25 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:section_id])
     @character = Character.find(params[:character_id])
     character_param = 'character_'+params[:character_id]
-    selected = params[character_param] && params[character_param] == 'selected'
+    selected = params[character_param] == 'selected'
+    on_stage_param = params[:on_stage]
     if @section && @character
-      if selected
-        logger.debug "ADD #{@character.name}"
-        @section.characters << @character
-      else
-        logger.debug "REMOVE #{@character.name}"
-        @section.characters.delete(@character)
+      if params[character_param]
+        if selected
+          logger.debug "ADD #{@character.name}"
+          @section.characters << @character
+        else
+          logger.debug "REMOVE #{@character.name}"
+          @section.characters.delete(@character)
+        end
+      end
+
+      if on_stage_param
+        cs = CharacterSection.where(character_id: @character.id, section_id: @section.id).first
+        cs.update_attribute(:on_stage, (on_stage_param=='true')) unless cs.nil?
       end
     end
+    
     @section.reload
     respond_to do |format|
       format.html { render json: @section.characters.map(&:id) }

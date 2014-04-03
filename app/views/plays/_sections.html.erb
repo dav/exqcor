@@ -28,33 +28,64 @@
     </p>
 
     <table>
+	  <tr>
+		<th>Available</th>
+		<th>On Stage</th>
+		<th></th>
+		<th></th>
+	  	</tr>
       <tr>
-        <td>
-      </td>
-      <td>
-        VOSD
-      </td>
-      <td>
-        <%= link_to 'Script', section_character_script_url(section, @play.VOSD) %>
-      </td>
+	      <td>
+	      </td>
+	      <td>
+	      </td>
+	      <td>
+	        VOSD
+	      </td>
+	      <td>
+	        <%= link_to 'Script', section_character_script_url(section, @play.VOSD) %>
+	      </td>
+	  </tr>
       
     <% @play.real_characters.each do |character| %>
       <tr>
         <td>
-      <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
-        data: {
-          remote: true,
-          url: section_characters_url(section.id, character.id)
-        }
-      )  %> 
-      </td>
-      <td>
-        <%= character.name %>
-      </td>
-      <td>
-        <%= link_to 'Script', section_character_script_url(section, character) %>
-      </td>
-    </tr>
+	      <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
+	        data: {
+	          remote: true,
+	          url: section_characters_url(section.id, character.id)
+	        }
+	      )  %> 
+	    </td>
+	    <td>
+		<% 
+			tag_id = 'section_'+section.id.to_s+'_character_'+character.id.to_s+'_on_stage' 
+			cs = character.character_sections.where(section_id: section.id).first
+			if cs
+		%>
+		<%= 
+			check_box_tag(tag_id, 'true', cs.on_stage)
+		%>
+			<script>
+			$("#<%=tag_id%>").change(function() {
+				$.ajax({
+				            url: "<%= section_characters_url(section.id, character.id) %>",
+				            data: "on_stage="+this.checked, 
+				            success: function() { console.log('ON STAGE UPDATE SUCCESS') }
+				        });
+			});
+			</script>
+		<%
+			end
+		%> 
+	    </td>
+	      <td>
+	        <%= character.name %>
+	      </td>
+	      <td>
+	        <%= link_to 'Script', section_character_script_url(section, character) %>
+	      </td>
+      </tr>
     <% end %>
     </table>
   </td>

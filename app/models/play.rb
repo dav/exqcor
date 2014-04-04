@@ -32,7 +32,7 @@ class Play < ActiveRecord::Base
     vosd = Character.new
     vosd.play = self
     vosd.name = 'VOSD'
-    vosd.description = 'Voice of Stage Directions. The scenic narration: all Stage Directions are spoken by VOSD'
+    vosd.description = 'The scenic narration: all stage directions are spoken by Voice of Stage Directions.'
     vosd.save!
     vosd
   end

@@ -1,12 +1,12 @@
 <%= render 'plays/script_description', :play => @section.play %>
 <hr/>
 
-<%= render 'section_script_header', :section => @section %>
-    
 <div style="font-size: 150%; font-weight: bold; width: 100%; text-align: center; padding: 20px 0">
-      Role: <%= @character.name %>  
+  Role: <%= @character.name %>
 </div>
 
+<%= render 'section_script_header', :section => @section %>
+    
 <% @section.sub_sections.each do |ss| %>
   <br/>
 

@@ -19,6 +19,8 @@ Exqcor::Application.routes.draw do
   match 'sections/:section_id/script_package' => 'sections#script_package', :as => :section_script_package
   match 'sections/:section_id/character/:character_id' => 'sections#script_for_character', :as => :section_character_script
 
+  match 'sections/:section_id/actor/:actor_id' => 'sections#script_for_actor', :as => :section_actor_script
+
   match 'sections/:section_id/characters/:character_id' => 'sections#characters', :as => :section_characters
 
   # The priority is based upon order of creation:

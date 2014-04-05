@@ -42,6 +42,15 @@ class SectionsController < ApplicationController
     end
   end
 
+  def script_for_actor
+    @section = Section.find(params[:section_id])
+    @actor = Actor.find(params[:actor_id])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   # POST /Sections
   # POST /Sections.json
   def create

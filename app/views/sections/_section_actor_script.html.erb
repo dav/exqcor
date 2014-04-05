@@ -1,0 +1,37 @@
+<%= render 'plays/script_description', :play => @section.play %>
+<hr/>
+
+<div style="font-size: 150%; font-weight: bold; width: 100%; text-align: center; padding: 20px 0">
+  <% @actor.characters.each do |character| %>
+    Role: <%= character.name %><br/>
+  <% end %>
+</div>
+
+<%= render 'section_script_header', :section => @section %>
+    
+<% @section.sub_sections.each do |ss| %>
+  <br/>
+
+  <% ss.lines.each do |line| %>
+  <%
+    is_highlight_character = (@actor && @actor.characters.include?(line.character))
+  %>
+  <div class="script-line" style="margin: auto; text-align: center; text-decoration: underline">
+	  <% if is_highlight_character %>
+      	<div style="font-weight: bold"><%= line.character.name %></div>
+	  <% else %>
+    	<div style=""><%= line.character.name %></div>
+	  <% end %>
+  </div>
+
+  <div class="script-line" style=" padding: 0;">
+	  <% if is_highlight_character %>
+      <div class="highlighted"><%= line.text %></div>
+	  <% elsif line.character.name =~ /VOSD/ ||  line.character.name.strip == 'Voice of Stage Directions' %>
+  	  <div class="vosd"><%= line.text %></div>
+	  <% else %>
+      	<div><%= line.text %></div>
+	  <% end %>
+  </div>
+  <% end # lines %>
+<% end # sub_sections  %>

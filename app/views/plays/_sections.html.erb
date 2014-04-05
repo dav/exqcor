@@ -32,7 +32,6 @@
 		<th>Available</th>
 		<th style="padding-left: 10px">On Stage</th>
 		<th></th>
-		<th></th>
 	  	</tr>
       <tr>
 	      <td>
@@ -41,9 +40,6 @@
 	      </td>
 	      <td>
 	        VOSD
-	      </td>
-	      <td>
-	        <%= link_to 'Script', section_character_script_url(section, @play.VOSD) %>
 	      </td>
 	  </tr>
       
@@ -79,12 +75,9 @@
 			end
 		%> 
 	    </td>
-	      <td>
-	        <%= character.name %>
-	      </td>
-	      <td>
-	        <%= link_to 'Script', section_character_script_url(section, character) %>
-	      </td>
+          <td>
+            <%= character.name %>
+          </td>
       </tr>
     <% end %>
     </table>
@@ -126,8 +119,26 @@
       </div>
     </td>
   </tr>
-  
-  <tr style="margin-bottom: 10px;">
+
+    <tr style="margin: 10px; 0">
+      <td colspan="2">
+        <div style="font-weight: bold; margin: 10px 0; font-size: 125%; background: lightgray; display:inline">
+          <%= link_to 'Scene Script For VOSD',  section_character_script_url(section, @play.VOSD) %>
+        </div>
+      </td>
+    </tr>
+
+    <% @play.characters.map(&:actor).compact.uniq.each do |actor| %>
+        <tr style="margin: 10px; 0">
+          <td colspan="2">
+            <div style="font-weight: bold; margin: 10px 0; font-size: 125%; background: lightgray; display:inline">
+              <%= link_to 'Scene Script For '+actor.name,  section_actor_script_url(section, actor) %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+
+    <tr style="margin-bottom: 10px;">
     <td colspan="2">
       <div style="width: 30%; border: 1px solid gray"></div>
     </td>

@@ -31,10 +31,11 @@
 }
 
 .highlighted {
+  margin-left: 10px;
   font-weight: bold;
   font-size: 15pt;
   /*background: yellow; the printer never does this anyhow */
-  display: inline;
+  /* display: inline; */
 }
 
 .script-line {
@@ -47,6 +48,34 @@
 	font-style: italic; 
 	display: inline;
 	padding: 5px 0;
+}
+
+.character-differentiator-0 {
+    border-bottom: 3px solid #000000;
+    border-left: 3px solid #000000;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.character-differentiator-1 {
+    border-bottom: 3px dashed #000000;
+    border-left: 3px dashed #000000;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.character-differentiator-2 {
+    border-bottom: 3px dotted #000000;
+    border-left: 3px dotted #000000;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.character-differentiator-3 {
+    border-bottom: 3px double #000000;
+    border-left: 3px double #000000;
+    padding-top: 5px;
+    padding-left: 5px;
 }
 
 .pagebreak { page-break-before: always; }

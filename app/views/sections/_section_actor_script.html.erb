@@ -8,15 +8,16 @@
 </div>
 
 <%= render 'section_script_header', :section => @section %>
-    
+
+<% characters = @actor.characters %>
 <% @section.sub_sections.each do |ss| %>
   <br/>
 
   <% ss.lines.each do |line| %>
   <%
-    is_highlight_character = (@actor && @actor.characters.include?(line.character))
+    is_highlight_character = (@actor && characters.include?(line.character))
   %>
-  <div class="script-line" style="margin: auto; text-align: center; text-decoration: underline">
+  <div class="script-line%>" style="margin: auto; text-align: center; text-decoration: underline">
 	  <% if is_highlight_character %>
       	<div style="font-weight: bold"><%= line.character.name %></div>
 	  <% else %>
@@ -24,7 +25,7 @@
 	  <% end %>
   </div>
 
-  <div class="script-line" style=" padding: 0;">
+  <div class="script-line character-differentiator-<%= characters.index(line.character) %>" style=" padding: 0;">
 	  <% if is_highlight_character %>
       <div class="highlighted"><%= line.text %></div>
 	  <% elsif line.character.name =~ /VOSD/ ||  line.character.name.strip == 'Voice of Stage Directions' %>

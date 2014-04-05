@@ -31,21 +31,21 @@
 }
 
 .highlighted {
-  font-weight: bold; 
-  background: yellow; 
+  font-weight: bold;
+  font-size: 15pt;
+  /*background: yellow; the printer never does this anyhow */
   display: inline;
 }
 
 .script-line {
 	font-family: courier;
-	font-size: 14pt;
+	font-size: 12pt;
 	line-height: 150%;
 }
 
 .vosd {
 	font-style: italic; 
-	font-weight: bold; 
-	display: inline; 
+	display: inline;
 	padding: 5px 0;
 }
 

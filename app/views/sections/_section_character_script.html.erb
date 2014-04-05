@@ -14,15 +14,15 @@
   <%
     is_highlight_character = (@character && @character.id == line.character.id)
   %>
-  <div class="script-line" style="margin-top: 20px; padding: 0 20em;">
+  <div class="script-line" style="margin: auto; text-align: center; text-decoration: underline">
 	  <% if is_highlight_character %>
-      	<div class="highlighted"><%= line.character.name %>:</div>
+      	<div style="font-weight: bold"><%= line.character.name %></div>
 	  <% else %>
-    	<div style=""><%= line.character.name %>:</div>
+    	<div style=""><%= line.character.name %></div>
 	  <% end %>
   </div>
 
-  <div class="script-line" style=" padding: 0 7em;">
+  <div class="script-line" style=" padding: 0;">
 	  <% if is_highlight_character %>
       <div class="highlighted"><%= line.text %></div>
 	  <% elsif line.character.name =~ /VOSD/ ||  line.character.name.strip == 'Voice of Stage Directions' %>

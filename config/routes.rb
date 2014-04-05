@@ -1,4 +1,7 @@
 Exqcor::Application.routes.draw do
+  resources :actors
+
+
   resources :plays do
     resources :characters 
     resources :sections do

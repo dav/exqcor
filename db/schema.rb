@@ -11,9 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140401040557) do
+ActiveRecord::Schema.define(:version => 20140405200932) do
 
-  create_table "character_sections", :force => true do |t|
+  create_table "actors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "character_sections", :id => false, :force => true do |t|
     t.integer "character_id"
     t.integer "section_id"
     t.boolean "on_stage"
@@ -28,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20140401040557) do
     t.integer  "play_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "actor_id"
   end
 
   create_table "lines", :force => true do |t|

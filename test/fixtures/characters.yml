@@ -4,8 +4,10 @@ erdos:
   name: Erdøs
   description: A small mathematician
   play: play1
+  actor: cage
 
 coxeter:
   name: Donald
   description: A tall mathematician
   play: play1
+  actor: oldman

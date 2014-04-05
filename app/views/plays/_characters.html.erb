@@ -4,7 +4,9 @@
 <tr>
 	<td style="font-weight: bold"><%= character.name %></td>
 	<td><%= character.description %></td>
-	<% if editable %>
+    <td style="font-weight: bold"><%= character==@play.VOSD ? '' : (character.actor ? "Played by #{character.actor.name}": '(please edit and select)') %></td>
+
+  <% if editable %>
 	<td>
     <% if character != @play.VOSD %>
 	  [

@@ -30,7 +30,7 @@
     <table>
 	  <tr>
 		<th>Available</th>
-		<th>On Stage</th>
+		<th style="padding-left: 10px">On Stage</th>
 		<th></th>
 		<th></th>
 	  	</tr>
@@ -49,7 +49,7 @@
       
     <% @play.real_characters.each do |character| %>
       <tr>
-        <td>
+        <td style="text-align: center">
 	      <%= check_box_tag('character_'+character.id.to_s, 'selected', section.characters.include?(character),
 	        data: {
 	          remote: true,
@@ -57,7 +57,7 @@
 	        }
 	      )  %> 
 	    </td>
-	    <td>
+	    <td style="text-align: center">
 		<% 
 			tag_id = 'section_'+section.id.to_s+'_character_'+character.id.to_s+'_on_stage' 
 			cs = character.character_sections.where(section_id: section.id).first

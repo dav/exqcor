@@ -26,6 +26,7 @@ class Section < ActiveRecord::Base
   end
   
   def add_vosd
+    # This creates the CharacterSection object
     self.characters << self.play.VOSD
   end
   

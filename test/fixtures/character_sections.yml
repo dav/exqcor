@@ -1,0 +1,13 @@
+cs1:
+  character: vosd
+  section_id: 11
+
+cs2:
+  character: erdos
+  section_id: 11
+  on_stage: 1
+
+cs3:
+  character: coxeter
+  section_id: 11
+  on_stage: 0

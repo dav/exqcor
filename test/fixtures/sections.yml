@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 play1_section1:
+  id: 11
   name: Act One
   description: Interior of a mathematics building
   ordering: 1
   play: play1
 
 play1_section2:
+  id: 12
   name: Act Two
   description: An open field at a blue grass festival
   ordering: 2

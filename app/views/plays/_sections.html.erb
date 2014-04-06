@@ -128,7 +128,7 @@
       </td>
     </tr>
 
-    <% @play.characters.map(&:actor).compact.uniq.each do |actor| %>
+  <% @play.real_characters.map(&:actor).compact.uniq.each do |actor| %>
         <tr style="margin: 10px; 0">
           <td colspan="2">
             <div style="font-weight: bold; margin: 10px 0; font-size: 125%; background: lightgray; display:inline">

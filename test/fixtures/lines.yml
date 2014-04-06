@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 p1s1ss1l1:
-  text: Would you like to gaze at my mirrors?
+  text: Coxeter enters, Erdos is already at a desk.
   ordering: 1
+  sub_section: play1_section1_ss1
+  character: vosd
+
+p1s1ss1l2:
+  text: Would you like to gaze at my mirrors?
+  ordering: 2
   sub_section: play1_section1_ss1
   character: coxeter
 
-p1s1ss1l2:
+p1s1ss1l3:
   text: My brain is open!
-  ordering: 2
+  ordering: 3
   sub_section: play1_section1_ss1
   character: erdos

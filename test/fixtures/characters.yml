@@ -1,5 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+vosd:
+  name: VOSD
+  description: Voice of Stage Directions
+  play: play1
+
 erdos:
   name: Erdøs
   description: A small mathematician

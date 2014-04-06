@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20140405200932) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "character_sections", :id => false, :force => true do |t|
+  create_table "character_sections", :force => true do |t|
     t.integer "character_id"
     t.integer "section_id"
     t.boolean "on_stage"

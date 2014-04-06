@@ -93,4 +93,15 @@ class PlaysController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def duplicate
+    play = Play.find(params[:id])
+    new_play = play.duplicate(:title => play.title + " Copy")
+    @play = new_play
+
+    respond_to do |format|
+      format.html { render action: "show" }
+      format.json { render json: @play }
+    end
+  end
 end

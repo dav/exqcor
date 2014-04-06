@@ -18,7 +18,7 @@
     [
     <%= link_to 'Show', play %>
     |<%= link_to 'Edit', edit_play_path(play) %>
-    |<%= link_to 'Duplicate as Template', duplicate_play_path(play) %>
+    |<%= link_to 'Duplicate as Template', duplicate_play_path(play), :confirm => "Do you really want to duplicate this play as a template?" %>
     |<%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' } %>
     ]
   </div>

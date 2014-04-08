@@ -28,6 +28,9 @@ class PlaysController < ApplicationController
     if params[:character_id]
       @character = Character.find(params[:character_id])
     end
+    if params[:actor_id]
+      @actor = Actor.find(params[:actor_id])
+    end
     respond_to do |format|
       format.html
     end

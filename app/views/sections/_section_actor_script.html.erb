@@ -1,18 +1,17 @@
-<%= render 'plays/script_description', :play => @section.play %>
-<hr/>
+<%= render 'plays/script_description', :play => section.play %>
 
 <div style="font-size: 150%; font-weight: bold; width: 100%; text-align: center; padding: 20px 0">
   <% @actor.characters.each do |character|
-      next if character.play != @section.play
+      next if character.play != section.play
   %>
     Role: <%= character.name %><br/>
   <% end %>
 </div>
 
-<%= render 'section_script_header', :section => @section %>
+<%= render 'sections/section_script_header', :section => section %>
 
 <% characters = @actor.characters %>
-<% @section.sub_sections.each do |ss| %>
+<% section.sub_sections.each do |ss| %>
   <br/>
 
   <% ss.lines.each do |line| %>

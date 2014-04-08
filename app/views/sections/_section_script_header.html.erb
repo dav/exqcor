@@ -5,5 +5,5 @@
     <div style="margin: 0.25em 0">
       <em><%= section.description %></em>
     </div>
-    <%= render 'characters/all_description_table', :characters => section.sorted_characters %>
+    <%= render 'characters/all_description_table', :characters => section.sorted_characters, :section => section %>
 </div>

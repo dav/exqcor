@@ -3,14 +3,16 @@
 <script type="text/javascript" src="/assets/jquery.countdown.js"></script>
 <% end %>
 
-<div>
-This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %> in <%= @section.name %>.
+<div  style="text-align: center; margin: auto; width: 80%">
+This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sections.size %>.
 </div>
 
 <hr>
 
-<h1><i><%= @sub_section.section.play.title %></i>, "<%= @section.name %>"</h1>
-<h3>
+<h1 style="text-align: center; margin: auto; width: 80%">
+  <i><%= @sub_section.section.play.title %></i>, "<%= @section.name %>"
+</h1>
+<h3 style="margin: auto; margin-top:5px; width: 80%">
   <%= @section.description %>
 </h3>
 
@@ -21,19 +23,24 @@ This is writer section <%= @sub_section.ordering+1 %> of <%= @section.sub_sectio
     This is the first section, so no previous line. Just start writing!
     <hr/>
   <% else %>
-    <span style="background-color: yellow">Previous line:</span>
+    <div style="text-align: center">Previous line:</div>
     <% if @last_line %>
-      <table  style="background-color: yellow">
+
+      <table>
         <tr>
-          <td align="right" valign="top" style="margin-top: 20px">
+          <td align="right" valign="top" style="margin-top: 20px" nowrap>
             <div class="script-line"><%= @last_line.character.name %>:</div>
           </td>
-          <td style="">
+          <td style="background-color: yellow">
             <div class="script-line"><%= @last_line.text %></div>
           </td>
+        </tr>
       </table>
+
     <% else %>
+
       No last line in previous section yet
+
     <% end %>
   <% end %>
 </div>

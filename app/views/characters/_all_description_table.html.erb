@@ -7,7 +7,7 @@
         <tr>
             <td style="vertical-align: top; font-weight:bold; text-align: right"><%= character.name %></td>
             <td style="vertical-align: top; font-weight:bold; text-align: right">
-				<%= (cs = @section.character_sections.where(character_id: character.id, section_id: @section.id).first) && cs.on_stage ? '*' : nil  %>
+				<%= (cs = section.character_sections.where(character_id: character.id, section_id: section.id).first) && cs.on_stage ? '*' : nil  %>
 			</td>
             <td style="text-align: left"><%= character.description %></td>
         </tr>

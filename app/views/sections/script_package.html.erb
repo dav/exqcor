@@ -1,5 +1,5 @@
 <% @section.sorted_characters.map(&:actor).compact.uniq.each do |actor|
       @actor = actor%>
-      <%= render 'section_actor_script' %>
+      <%= render 'section_actor_script', :section => @section %>
       <hr class="pagebreak" />
 <% end %>

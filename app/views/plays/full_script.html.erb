@@ -1,4 +1,4 @@
-<% @play.sections.each do |section| %>
+<% @play.sorted_sections.each do |section| %>
 
   <%= @actor ? render('sections/section_actor_script', :section => section) : render('sections/section_character_script', :section => section) %>
 <% end %>

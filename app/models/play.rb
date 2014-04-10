@@ -112,4 +112,9 @@ class Play < ActiveRecord::Base
     new_play
   end
 
+  def sorted_sections
+    sections.sort do |a, b|
+      a.sort_name <=> b.sort_name
+    end
+  end
 end

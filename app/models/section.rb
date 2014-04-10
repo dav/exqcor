@@ -50,5 +50,12 @@ class Section < ActiveRecord::Base
     end
     total
   end
-  
+
+  # hacky but its almost show time
+  def sort_name
+    return 'A' if name == 'Opening Monologue'
+    return 'ZZZZZZZ' if name == 'Closing Monologue'
+    return name
+  end
+
 end

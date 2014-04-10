@@ -1,5 +1,5 @@
 <h3>Scenes</h3>
-<% @play.sections.each_with_index do |section| %>
+<% @play.sorted_sections.each_with_index do |section| %>
   <table style="margin-left: 20px; margin-top: 20px; border: 1px solid gray;">
     <tr>
     	<td colspan="2" style="font-size: 140%; font-weight: bold; padding-top: 10px;"><%= section.name %></td>

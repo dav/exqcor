@@ -1,8 +1,10 @@
 <%= render 'plays/script_description', :play => section.play %>
 
+<% if @character %>
 <div style="font-size: 150%; font-weight: bold; width: 100%; text-align: center; padding: 20px 0">
   Role: <%= @character.name %>
 </div>
+<% end %>
 
 <%= render 'sections/section_script_header', :section => section %>
     

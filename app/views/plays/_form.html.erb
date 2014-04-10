@@ -46,6 +46,7 @@
 <div>
   <div style="font-weight: bold; font-size: 125%; background: yellow; display:inline">View Full Script</div>
 <ul>
+  <li><%= link_to "Plain Script", full_script_url(@play)%></li>
   <li><%= link_to @play.VOSD.name, full_script_url(@play, {:character_id => @play.VOSD.id })%></li>
 
   <% @play.real_characters.map(&:actor).compact.uniq.each do |actor|

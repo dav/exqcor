@@ -21,9 +21,11 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update play title/description" %>
+    <%= f.submit "#{@play.id? ? 'Update' : 'Create' } play title/description" %>
   </div>
 <% end %>
+
+<% if @play.id %>
 
 <hr>
 
@@ -58,4 +60,4 @@
 
 </ul>
 </div>
-
+<% end %>

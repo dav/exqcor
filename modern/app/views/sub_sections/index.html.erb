@@ -1,0 +1,25 @@
+<h1>Sub Sections</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Ordering</th>
+      <th>Writer</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sub_sections.each do |sub_section| %>
+      <tr>
+        <td><%= link_to sub_section.section.name, section_path(sub_section.section) %></td>
+        <td><%= sub_section.ordering %></td>
+        <td><%= sub_section.writer&.name || "Anonymous" %></td>
+        <td class="actions">
+          <%= link_to "Write", edit_sub_section_path(sub_section) %>
+          <%= link_to "View", sub_section_path(sub_section) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

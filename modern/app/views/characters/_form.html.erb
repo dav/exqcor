@@ -1,0 +1,41 @@
+<%= form_with(model: character) do |form| %>
+  <% if character.errors.any? %>
+    <div>
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+      <ul>
+        <% character.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :role %><br>
+    <%= form.select :role, Character.roles.keys, prompt: "Select a role" %>
+  </div>
+
+  <div>
+    <%= form.label :script_id, "Script" %><br>
+    <%= form.collection_select :script_id, Script.all, :id, :title, prompt: "Select a script" %>
+  </div>
+
+  <div>
+    <%= form.label :actor_id, "Actor" %><br>
+    <%= form.collection_select :actor_id, Actor.all, :id, :name, prompt: "Optional actor" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

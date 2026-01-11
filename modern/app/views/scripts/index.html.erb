@@ -1,0 +1,37 @@
+<h1>Scripts</h1>
+
+<div class="actions">
+  <% if authenticated? %>
+    <span>Signed in as <%= current_user&.email_address %><%= current_user&.admin? ? " (admin)" : "" %></span>
+    <%= button_to "Sign out", session_path, method: :delete, form: { class: "inline-form" } %>
+  <% else %>
+    <%= link_to "Sign in", new_session_path %>
+    <%= link_to "Create account", new_user_path %>
+  <% end %>
+</div>
+
+<div class="actions">
+  <%= link_to "New Script", new_script_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scripts.each do |script| %>
+      <tr>
+        <td><%= link_to script.title, script_path(script) %></td>
+        <td><%= script.description %></td>
+        <td class="actions">
+          <%= link_to "Edit", edit_script_path(script) %>
+          <%= link_to "Delete", script_path(script), data: { turbo_method: :delete, turbo_confirm: "Delete this script?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

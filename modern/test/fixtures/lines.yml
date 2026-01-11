@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  ordering: 1
+  sub_section: one
+  character: one
+
+two:
+  text: MyText
+  ordering: 1
+  sub_section: two
+  character: two

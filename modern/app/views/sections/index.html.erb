@@ -1,0 +1,29 @@
+<h1>Sections</h1>
+
+<div class="actions">
+  <%= link_to "New Section", new_section_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Script</th>
+      <th>Ordering</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sections.each do |section| %>
+      <tr>
+        <td><%= link_to section.name, section_path(section) %></td>
+        <td><%= section.script&.title %></td>
+        <td><%= section.ordering %></td>
+        <td class="actions">
+          <%= link_to "Edit", edit_section_path(section) %>
+          <%= link_to "Delete", section_path(section), data: { turbo_method: :delete, turbo_confirm: "Delete this section?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

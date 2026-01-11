@@ -1,0 +1,21 @@
+<nav class="admin-nav">
+  <div class="admin-nav__brand">Exqcor Admin</div>
+  <div class="admin-nav__links">
+    <%= link_to "Scripts", scripts_path %>
+    <%= link_to "Sections", sections_path %>
+    <%= link_to "Characters", characters_path %>
+    <%= link_to "Props", props_path %>
+    <%= link_to "Character Sections", character_sections_path %>
+    <% if authenticated? %>
+      <span class="admin-nav__user">
+        <%= current_user&.email_address %><%= current_user&.admin? ? " (admin)" : "" %>
+      </span>
+      <% if current_user&.admin? %>
+        <%= link_to "Users", admin_users_path %>
+      <% end %>
+      <%= button_to "Sign out", session_path, method: :delete, form: { class: "inline-form" } %>
+    <% else %>
+      <%= link_to "Sign in", new_session_path %>
+    <% end %>
+  </div>
+</nav>

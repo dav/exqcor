@@ -1,0 +1,27 @@
+<h1><%= @script.title %></h1>
+<p><%= @script.description %></p>
+
+<div class="actions">
+  <%= link_to "Edit Script", edit_script_path(@script) %>
+  <%= link_to "All Scripts", scripts_path %>
+</div>
+
+<h2>Sections</h2>
+<div class="actions">
+  <%= link_to "New Section", new_script_section_path(@script) %>
+</div>
+<ul>
+  <% @script.sections.each do |section| %>
+    <li><%= link_to section.name, section_path(section) %></li>
+  <% end %>
+</ul>
+
+<h2>Characters</h2>
+<div class="actions">
+  <%= link_to "New Character", new_script_character_path(@script) %>
+</div>
+<ul>
+  <% @script.characters.each do |character| %>
+    <li><%= link_to character.name, character_path(character) %> (<%= character.role %>)</li>
+  <% end %>
+</ul>

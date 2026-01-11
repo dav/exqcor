@@ -1,0 +1,27 @@
+<h1>Props</h1>
+
+<div class="actions">
+  <%= link_to "New Prop", new_prop_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Section</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @props.each do |prop| %>
+      <tr>
+        <td><%= link_to prop.name, prop_path(prop) %></td>
+        <td><%= prop.section&.name %></td>
+        <td class="actions">
+          <%= link_to "Edit", edit_prop_path(prop) %>
+          <%= link_to "Delete", prop_path(prop), data: { turbo_method: :delete, turbo_confirm: "Delete this prop?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

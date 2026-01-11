@@ -1,0 +1,19 @@
+<h1>Sub Section</h1>
+
+<p>
+  Section: <%= link_to @sub_section.section.name, section_path(@sub_section.section) %><br>
+  Ordering: <%= @sub_section.ordering %><br>
+  Writer: <%= @sub_section.writer&.name || "Anonymous" %>
+</p>
+
+<div class="actions">
+  <%= link_to "Write", edit_sub_section_path(@sub_section) %>
+  <%= link_to "All Sub Sections", sub_sections_path %>
+</div>
+
+<h2>Lines</h2>
+<ul>
+  <% @sub_section.lines.order(:ordering).each do |line| %>
+    <li><strong><%= line.character.name %>:</strong> <%= line.text %></li>
+  <% end %>
+</ul>

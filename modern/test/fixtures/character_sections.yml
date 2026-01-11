@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  character: one
+  section: one
+  on_stage: false
+
+two:
+  character: two
+  section: two
+  on_stage: false

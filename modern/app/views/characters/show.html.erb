@@ -1,0 +1,12 @@
+<h1><%= @character.name %></h1>
+<p><%= @character.description %></p>
+<p><strong>Role:</strong> <%= @character.role %></p>
+<p><strong>Script:</strong> <%= link_to @character.script.title, script_path(@character.script) %></p>
+<% if @character.actor %>
+  <p><strong>Actor:</strong> <%= @character.actor.name %></p>
+<% end %>
+
+<div class="actions">
+  <%= link_to "Edit Character", edit_character_path(@character) %>
+  <%= link_to "All Characters", characters_path %>
+</div>

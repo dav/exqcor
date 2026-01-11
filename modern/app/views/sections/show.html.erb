@@ -1,0 +1,41 @@
+<h1><%= @section.name %></h1>
+<p><%= @section.description %></p>
+<p><strong>Script:</strong> <%= link_to @section.script.title, script_path(@section.script) %></p>
+
+<div class="actions">
+  <%= link_to "Edit Section", edit_section_path(@section) %>
+  <%= link_to "All Sections", sections_path %>
+</div>
+
+<h2>Props</h2>
+<div class="actions">
+  <%= link_to "New Prop", new_section_prop_path(@section) %>
+</div>
+<ul>
+  <% @section.props.each do |prop| %>
+    <li><%= link_to prop.name, prop_path(prop) %></li>
+  <% end %>
+</ul>
+
+<h2>Writer Turns</h2>
+<ul>
+  <% @section.sub_sections.each do |sub_section| %>
+    <li>
+      Turn <%= sub_section.ordering + 1 %>:
+      <%= link_to "Write", edit_sub_section_path(sub_section) %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Character Sections</h2>
+<div class="actions">
+  <%= link_to "New Character Section", new_section_character_section_path(@section) %>
+</div>
+<ul>
+  <% @section.character_sections.each do |cs| %>
+    <li>
+      <%= link_to cs.character.name, character_path(cs.character) %>
+      (<%= cs.on_stage ? "on stage" : "off stage" %>)
+    </li>
+  <% end %>
+</ul>

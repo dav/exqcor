@@ -1,0 +1,31 @@
+<%= form_with(model: character_section) do |form| %>
+  <% if character_section.errors.any? %>
+    <div>
+      <h2><%= pluralize(character_section.errors.count, "error") %> prohibited this character section from being saved:</h2>
+      <ul>
+        <% character_section.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :character_id, "Character" %><br>
+    <%= form.collection_select :character_id, Character.all, :id, :name, prompt: "Select a character" %>
+  </div>
+
+  <div>
+    <%= form.label :section_id, "Section" %><br>
+    <%= form.collection_select :section_id, Section.all, :id, :name, prompt: "Select a section" %>
+  </div>
+
+  <div>
+    <%= form.label :on_stage %>
+    <%= form.check_box :on_stage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

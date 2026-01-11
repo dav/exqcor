@@ -1,0 +1,29 @@
+<h1>Character Sections</h1>
+
+<div class="actions">
+  <%= link_to "New Character Section", new_character_section_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Section</th>
+      <th>On Stage</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @character_sections.each do |cs| %>
+      <tr>
+        <td><%= link_to cs.character.name, character_path(cs.character) %></td>
+        <td><%= link_to cs.section.name, section_path(cs.section) %></td>
+        <td><%= cs.on_stage ? "Yes" : "No" %></td>
+        <td class="actions">
+          <%= link_to "Edit", edit_character_section_path(cs) %>
+          <%= link_to "Delete", character_section_path(cs), data: { turbo_method: :delete, turbo_confirm: "Delete this character section?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

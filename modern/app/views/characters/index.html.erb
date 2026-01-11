@@ -1,0 +1,31 @@
+<h1>Characters</h1>
+
+<div class="actions">
+  <%= link_to "New Character", new_character_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Script</th>
+      <th>Actor</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @characters.each do |character| %>
+      <tr>
+        <td><%= link_to character.name, character_path(character) %></td>
+        <td><%= character.role %></td>
+        <td><%= character.script&.title %></td>
+        <td><%= character.actor&.name %></td>
+        <td class="actions">
+          <%= link_to "Edit", edit_character_path(character) %>
+          <%= link_to "Delete", character_path(character), data: { turbo_method: :delete, turbo_confirm: "Delete this character?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

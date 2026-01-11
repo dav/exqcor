@@ -1,0 +1,31 @@
+<%= form_with(model: prop) do |form| %>
+  <% if prop.errors.any? %>
+    <div>
+      <h2><%= pluralize(prop.errors.count, "error") %> prohibited this prop from being saved:</h2>
+      <ul>
+        <% prop.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :section_id, "Section" %><br>
+    <%= form.collection_select :section_id, Section.all, :id, :name, prompt: "Select a section" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

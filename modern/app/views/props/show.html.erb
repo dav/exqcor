@@ -1,0 +1,8 @@
+<h1><%= @prop.name %></h1>
+<p><%= @prop.description %></p>
+<p><strong>Section:</strong> <%= link_to @prop.section.name, section_path(@prop.section) %></p>
+
+<div class="actions">
+  <%= link_to "Edit Prop", edit_prop_path(@prop) %>
+  <%= link_to "All Props", props_path %>
+</div>

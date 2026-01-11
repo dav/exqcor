@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ordering: 1
+  section: one
+  writer: one
+
+two:
+  ordering: 1
+  section: two
+  writer: two

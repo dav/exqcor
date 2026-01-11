@@ -1,0 +1,76 @@
+<h1>Writer Session</h1>
+
+<p>
+  Script: <%= link_to @script.title, script_path(@script) %><br>
+  Section: <%= link_to @section.name, section_path(@section) %><br>
+  Turn: <%= @sub_section.ordering + 1 %> of <%= @section.sub_sections.count %>
+</p>
+
+<hr>
+
+<% if @last_sub_section.nil? %>
+  <p>This is the first turn, so there is no previous line. Start writing.</p>
+<% elsif @last_line %>
+  <p><strong>Previous line:</strong></p>
+  <table>
+    <tr>
+      <td><strong><%= @last_line.character.name %>:</strong></td>
+      <td><%= @last_line.text %></td>
+    </tr>
+  </table>
+<% else %>
+  <p>No previous line in the last turn yet.</p>
+<% end %>
+
+<hr>
+
+<h2>Writer</h2>
+<%= form_with(model: @sub_section) do |form| %>
+  <div>
+    <%= form.label :writer_id, "Writer" %><br>
+    <%= form.collection_select :writer_id, @writers, :id, :name, include_blank: "Anonymous" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save Writer" %>
+  </div>
+<% end %>
+
+<hr>
+
+<h2>Add Line</h2>
+<%= form_with(model: [@sub_section, @line]) do |form| %>
+  <% if @line.errors.any? %>
+    <div>
+      <h3><%= pluralize(@line.errors.count, "error") %> prevented the line from saving:</h3>
+      <ul>
+        <% @line.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :character_id, "Character" %><br>
+    <%= form.collection_select :character_id, @characters, :id, :name, prompt: "Select a character" %>
+  </div>
+
+  <div>
+    <%= form.label :text, "Line" %><br>
+    <%= form.text_area :text, rows: 4 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Add Line" %>
+  </div>
+<% end %>
+
+<hr>
+
+<h2>Current Lines</h2>
+<ul>
+  <% @sub_section.lines.order(:ordering).each do |line| %>
+    <li><strong><%= line.character.name %>:</strong> <%= line.text %></li>
+  <% end %>
+</ul>

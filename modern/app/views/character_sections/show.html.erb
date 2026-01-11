@@ -1,0 +1,9 @@
+<h1>Character Section</h1>
+<p><strong>Character:</strong> <%= link_to @character_section.character.name, character_path(@character_section.character) %></p>
+<p><strong>Section:</strong> <%= link_to @character_section.section.name, section_path(@character_section.section) %></p>
+<p><strong>On Stage:</strong> <%= @character_section.on_stage ? "Yes" : "No" %></p>
+
+<div class="actions">
+  <%= link_to "Edit", edit_character_section_path(@character_section) %>
+  <%= link_to "All Character Sections", character_sections_path %>
+</div>

@@ -1,0 +1,57 @@
+name: Exqcor
+options:
+  bundleIdPrefix: com.exqcor
+  deploymentTarget:
+    macOS: 14.0
+    iOS: 17.0
+configs:
+  Debug: debug
+  Release: release
+settings:
+  base:
+    SWIFT_VERSION: 5.10
+packages:
+  ExqcorCore:
+    path: .
+
+schemes:
+  Exqcor-macOS:
+    build:
+      targets:
+        ExqcorMac: all
+  Exqcor-iOS:
+    build:
+      targets:
+        ExqcoriOS: all
+
+
+targets:
+  ExqcorMac:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources/Mac
+    dependencies:
+      - package: ExqcorCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.exqcor.writer.macos
+        PRODUCT_NAME: Exqcor Writer
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        GENERATE_INFOPLIST_FILE: YES
+
+  ExqcoriOS:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources/iOS
+    dependencies:
+      - package: ExqcorCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.exqcor.writer.ios
+        PRODUCT_NAME: Exqcor Writer
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        GENERATE_INFOPLIST_FILE: YES

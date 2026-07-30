@@ -1,0 +1,55 @@
+version: 2
+
+project_name: exqcor
+
+# Run from server/. The frontend must already be built into
+# internal/webui/dist (the release workflow does this before goreleaser).
+builds:
+  - id: exqcor
+    main: ./cmd/exqcor
+    binary: exqcor
+    env:
+      - CGO_ENABLED=0
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w -X github.com/dav/exqcor/server/internal/version.Version={{.Version}}
+    goos: [linux, windows, darwin]
+    goarch: [amd64, arm64]
+    ignore:
+      - goos: windows
+        goarch: arm64
+
+universal_binaries:
+  - id: exqcor-mac
+    ids: [exqcor]
+    replace: true
+    name_template: exqcor
+
+archives:
+  - id: default
+    formats: [tar.gz]
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ if eq .Os "darwin" }}macos{{ else }}{{ .Os }}{{ end }}_{{ if eq .Os "darwin" }}universal{{ else }}{{ .Arch }}{{ end }}
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+      - goos: darwin
+        formats: [zip]
+    files:
+      - src: release/README.txt
+        dst: README.txt
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  use: github-native
+
+release:
+  draft: false
+  footer: |
+    ### Running it
+    Unzip, then double-click `exqcor` (macOS/Linux) or `exqcor.exe` (Windows).
+    See README.txt in the archive for the macOS/Windows first-run warnings and
+    the show-night guide.

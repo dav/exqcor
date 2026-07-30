@@ -1,0 +1,191 @@
+/* Exqcor — backstage theater design system.
+   Dark stage surfaces hold pieces of warm paper; tungsten amber is the only
+   light. System fonts only: venues may have no internet. */
+
+:root {
+  --stage: #16121c;        /* house-dark background */
+  --stage-raised: #211a2b; /* raised panels on the stage */
+  --stage-line: #372c46;   /* hairline rules on dark */
+  --tungsten: #e8b054;     /* stage-light amber: actions, focus, timer */
+  --curtain: #c8452e;      /* curtain red: urgency, destructive */
+  --dim: #a293b8;          /* secondary text on dark */
+  --glow: #f6e7c8;         /* primary text on dark, lit-by-tungsten white */
+  --paper: #f3ecdb;        /* script paper */
+  --paper-shade: #e7dcc2;  /* paper edge/fold shading */
+  --ink: #2a2233;          /* ink on paper */
+  --ink-dim: #6f6480;      /* stage directions, annotations on paper */
+
+  --font-script: 'Courier New', Courier, monospace;
+  --font-serif: 'Iowan Old Style', Georgia, 'Palatino Linotype', serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--stage);
+  color: var(--glow);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-weight: 600; line-height: 1.15; margin: 0 0 0.5rem; }
+
+a { color: var(--tungsten); }
+
+/* Cue-sheet label: the app's structural device. */
+.cue {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 4rem;
+}
+
+.wrap-wide { max-width: 960px; }
+
+/* Panels on the dark stage */
+.panel {
+  background: var(--stage-raised);
+  border: 1px solid var(--stage-line);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 0 0 1rem;
+}
+
+/* A piece of script paper on the stage. */
+.paper {
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 3px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+}
+
+.paper .cue { color: var(--ink-dim); }
+
+/* Torn strip: the exquisite-corpse fold carrying the previous line. */
+.fold {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-script);
+  padding: 1rem 1.25rem 1.35rem;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 88%, 96% 100%, 91% 90%, 85% 99%,
+    79% 90%, 72% 100%, 65% 91%, 58% 99%, 51% 90%, 44% 100%, 37% 91%,
+    30% 99%, 23% 90%, 16% 100%, 10% 91%, 4% 99%, 0 89%);
+}
+
+/* Script typography (shared by writer view and printed scripts) */
+.script-line { font-family: var(--font-script); margin: 0 0 0.9rem; }
+.script-line .speaker {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 0.1rem;
+}
+.script-line .dialogue { display: block; padding: 0 1.5rem; }
+.script-line.vosd .dialogue {
+  font-style: italic;
+  padding: 0 2.5rem;
+}
+.script-line.vosd .dialogue::before { content: '('; }
+.script-line.vosd .dialogue::after { content: ')'; }
+
+/* Controls */
+button, .btn {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid var(--stage-line);
+  border-radius: 8px;
+  background: var(--stage-raised);
+  color: var(--glow);
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+}
+
+button.primary, .btn.primary {
+  background: var(--tungsten);
+  border-color: var(--tungsten);
+  color: #241a08;
+}
+
+button.danger, .btn.danger {
+  background: transparent;
+  border-color: var(--curtain);
+  color: var(--curtain);
+}
+
+button:disabled { opacity: 0.45; cursor: default; }
+
+button:focus-visible, a:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--tungsten);
+  outline-offset: 2px;
+}
+
+input[type='text'], input[type='password'], input[type='number'],
+textarea, select {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--stage-line);
+  border-radius: 8px;
+  background: var(--stage);
+  color: var(--glow);
+}
+
+label { display: block; margin: 0.75rem 0 0.25rem; }
+
+table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--stage-line); }
+th { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--dim); }
+
+.error {
+  background: rgba(200, 69, 46, 0.12);
+  border: 1px solid var(--curtain);
+  color: #f0b3a6;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  margin: 0.75rem 0;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+}
+
+.muted { color: var(--dim); }
+
+.row { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.spread { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* Print: only .print-sheet content, as ink on paper. */
+@media print {
+  body { background: #fff; color: #000; font-size: 12pt; }
+  .no-print { display: none !important; }
+  .paper, .print-sheet { box-shadow: none; border-radius: 0; padding: 0; background: #fff; color: #000; }
+  .wrap { max-width: none; padding: 0; }
+  a { color: #000; text-decoration: none; }
+}

@@ -15,3 +15,12 @@
 /tmp
 
 /config/database.yml
+
+# Exqcor v3 (Go server + Svelte web)
+/server/internal/webui/dist/
+/server/exqcor
+/tmp/
+*.db
+*.db-wal
+*.db-shm
+/server/dist/

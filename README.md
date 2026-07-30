@@ -1,4 +1,6 @@
-# Exqcor
+# Mikl Em's Exquisite Corpse
+
+The audience writes a play for character actors they just met. Each writer sees only the last line the previous writer left behind. The improv actors perform each act cold, minutes after it's written, for the audience that wrote it.
 
 > **A note from the main developer:**
 >
@@ -12,11 +14,6 @@
 > other production troupes can make use of it to create amazing
 > collaborations in their own communities. I believe it is what Mikl would
 > have wanted.*
-
-Software for **exquisite corpse theater**: the audience writes a play one
-person at a time — each writer sees only the last line the previous writer
-left behind — and improv actors perform each act cold, minutes after it's
-written.
 
 ## How it works (audience view)
 
